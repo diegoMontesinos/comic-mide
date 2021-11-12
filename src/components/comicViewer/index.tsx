@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import GoForwardImg from '../assets/go_fwd.svg';
-import GoBackImg from '../assets/go_back.svg';
+import { useParams } from 'react-router-dom';
+
+import GoForwardImg from '../../assets/go_fwd.svg';
+import GoBackImg from '../../assets/go_back.svg';
 
 import ComicPage, { ComicPageRef } from './ComicPage';
 
@@ -21,12 +23,12 @@ interface Props {
 }
 
 const ComicViewer: React.FC<Props> = ({ pages }) => {
-  const [currentPageNumber, setCurrentPageNumber] = useState<number>(0);
+  const [currentPageNumber, setCurrentPageNumber] = useState<number>(-1);
   const [playingState, setPlayingState] = useState<PlayingState>(PlayingState.READING);
 
   const pageRef = useRef<ComicPageRef | null>(null);
 
-  const currentPage = pages[currentPageNumber];
+  const { pageId } = useParams() as any;
 
   const handleBack = () => {
     if (!pageRef.current) return;
@@ -66,11 +68,34 @@ const ComicViewer: React.FC<Props> = ({ pages }) => {
   };
 
   useEffect(() => {
-    if (!pageRef.current) return;
+    if (currentPageNumber === -1 || !pageRef.current) return;
+
+    window.history.pushState({}, '', `/comic/${pages[currentPageNumber].id}`);
 
     setPlayingState(PlayingState.PLAYING_INTRO);
     pageRef.current.playIntro();
   }, [currentPageNumber]);
+
+  useEffect(() => {
+    if (pageId === undefined) {
+      setCurrentPageNumber(0);
+      return;
+    }
+
+    // Get page index based on the id
+    let pageNumber = -1;
+    pages.forEach(({ id }, index) => {
+      if (id === pageId) {
+        pageNumber = index;
+      }
+    });
+
+    setCurrentPageNumber(pageNumber);
+  }, [pageId]);
+
+  if (currentPageNumber === -1) return null;
+
+  const currentPage = pages[currentPageNumber];
 
   return (
     <div className="comic-viewer">

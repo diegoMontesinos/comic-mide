@@ -85,7 +85,7 @@ const ComicPage = React.forwardRef<ComicPageRef, ComicPageProps>((
       renderer: 'svg',
       loop: false,
       autoplay: false,
-      path: `${ANIMATION_BASEPATH}${intro}`,
+      path: `${process.env.PUBLIC_URL}/${ANIMATION_BASEPATH}${intro}`,
     });
 
     introAnimation.current.addEventListener('complete', () => {
@@ -97,7 +97,7 @@ const ComicPage = React.forwardRef<ComicPageRef, ComicPageProps>((
       renderer: 'svg',
       loop: false,
       autoplay: false,
-      path: `${ANIMATION_BASEPATH}${outro}`,
+      path: `${process.env.PUBLIC_URL}/${ANIMATION_BASEPATH}${outro}`,
     });
 
     outroAnimation.current.addEventListener('complete', () => {
