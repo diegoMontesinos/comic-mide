@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import ComicViewer from './components/comicViewer';
 import FrontPage from './components/frontPage';
@@ -21,9 +17,15 @@ const App: React.FC = () => (
   <Router>
     <div className="app-comic">
       <Switch>
-        <Route exact path="/"><FrontPage /></Route>
-        <Route exact path="/tutorial"><Tutorial /></Route>
-        <Route path="/comic/:pageId"><ComicViewer pages={pages} /></Route>
+        <Route exact path="/">
+          <FrontPage />
+        </Route>
+        <Route exact path="/tutorial">
+          <Tutorial />
+        </Route>
+        <Route path="/comic/:pageId">
+          <ComicViewer pages={pages} />
+        </Route>
       </Switch>
     </div>
   </Router>

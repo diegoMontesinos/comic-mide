@@ -1,42 +1,62 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "@typescript-eslint"
-    ],
-    "rules": {
-        "react/prop-types": "off",
-        "no-use-before-define": "off",
-        "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
-        "import/extensions": [
-            "error",
-            "ignorePackages",
-            { "ts": "never", "tsx": "never" }
-        ],
-        "no-console": "off",
-        "no-shadow": "off",
-        "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": "warn",
-        "@typescript-eslint/no-use-before-define": ["error"]
-    },
-    "settings": {
-        "import/resolver": {
-            "typescript": {}
-        }
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
     }
+  },
+  "root": true,
+  "plugins": ["react", "react-hooks", "@typescript-eslint"],
+  "rules": {
+    "no-debugger": "warn",
+    "no-console": "warn",
+    "no-unused-vars": "off",
+    "no-shadow": "off",
+    "no-use-before-define": "off",
+    "comma-dangle": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      { "ts": "never", "tsx": "never" }
+    ],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off",
+    "react/function-component-definition": [
+      "warn",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn",
+      { "allowExpressions": true }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
 }

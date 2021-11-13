@@ -24,44 +24,46 @@ interface Props {
 
 const ComicViewer: React.FC<Props> = ({ pages }) => {
   const [currentPageNumber, setCurrentPageNumber] = useState<number>(-1);
-  const [playingState, setPlayingState] = useState<PlayingState>(PlayingState.READING);
+  const [playingState, setPlayingState] = useState<PlayingState>(
+    PlayingState.READING
+  );
 
   const pageRef = useRef<ComicPageRef | null>(null);
 
-  const { pageId } = useParams() as any;
+  const { pageId } = useParams() as { pageId: string };
 
-  const handleBack = () => {
+  const handleBack = (): void => {
     if (!pageRef.current) return;
 
     setPlayingState(PlayingState.FADING_OUT);
     pageRef.current.fadeOut();
   };
 
-  const handleForward = () => {
+  const handleForward = (): void => {
     if (!pageRef.current) return;
 
     setPlayingState(PlayingState.PLAYING_OUTRO);
     pageRef.current.playOutro();
   };
 
-  const handleCompleteIntro = () => {
+  const handleCompleteIntro = (): void => {
     setPlayingState(PlayingState.READING);
   };
 
-  const handleCompleteOutro = () => {
+  const handleCompleteOutro = (): void => {
     setPlayingState(PlayingState.READING);
 
-    if ((currentPageNumber < pages.length - 1) && pageRef.current) {
+    if (currentPageNumber < pages.length - 1 && pageRef.current) {
       pageRef.current.destroy();
       setCurrentPageNumber(currentPageNumber + 1);
     }
   };
 
-  const handleCompleteFadeOut = () => {
+  const handleCompleteFadeOut = (): void => {
     if (playingState !== PlayingState.FADING_OUT) return;
     setPlayingState(PlayingState.READING);
 
-    if ((currentPageNumber > 0) && pageRef.current) {
+    if (currentPageNumber > 0 && pageRef.current) {
       pageRef.current.destroy();
       setCurrentPageNumber(currentPageNumber - 1);
     }
@@ -74,7 +76,7 @@ const ComicViewer: React.FC<Props> = ({ pages }) => {
 
     setPlayingState(PlayingState.PLAYING_INTRO);
     pageRef.current.playIntro();
-  }, [currentPageNumber]);
+  }, [currentPageNumber, pages]);
 
   useEffect(() => {
     if (pageId === undefined) {
@@ -91,7 +93,7 @@ const ComicViewer: React.FC<Props> = ({ pages }) => {
     });
 
     setCurrentPageNumber(pageNumber);
-  }, [pageId]);
+  }, [pageId, pages]);
 
   if (currentPageNumber === -1) return null;
 
@@ -109,9 +111,11 @@ const ComicViewer: React.FC<Props> = ({ pages }) => {
       />
 
       <div className="comic-controls">
-        {(currentPageNumber > 0) && (
+        {currentPageNumber > 0 && (
           <button
-            className={`go-back-btn ${playingState !== PlayingState.READING ? 'disabled' : 'enabled'}`}
+            className={`go-back-btn ${
+              playingState !== PlayingState.READING ? 'disabled' : 'enabled'
+            }`}
             type="button"
             onClick={handleBack}
           >
@@ -119,9 +123,11 @@ const ComicViewer: React.FC<Props> = ({ pages }) => {
           </button>
         )}
 
-        {(currentPageNumber < pages.length - 1) && (
+        {currentPageNumber < pages.length - 1 && (
           <button
-            className={`go-fwd-btn ${playingState !== PlayingState.READING ? 'disabled' : 'enabled'}`}
+            className={`go-fwd-btn ${
+              playingState !== PlayingState.READING ? 'disabled' : 'enabled'
+            }`}
             type="button"
             onClick={handleForward}
           >
