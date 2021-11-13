@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import ComicViewer from './components/comicViewer';
 import FrontPage from './components/frontPage';
@@ -13,22 +14,32 @@ const pages = [
   { id: 'page-3', intro: 'ilu_03_intro.json', outro: 'ilu_03_outro.json' },
 ];
 
-const App: React.FC = () => (
-  <Router>
+const App: React.FC = () => {
+  const location = useLocation();
+
+  return (
     <div className="app-comic">
-      <Switch>
-        <Route exact path="/">
-          <FrontPage />
-        </Route>
-        <Route exact path="/tutorial">
-          <Tutorial />
-        </Route>
-        <Route path="/comic/:pageId">
-          <ComicViewer pages={pages} />
-        </Route>
-      </Switch>
+      <TransitionGroup>
+        <CSSTransition
+          key={location.pathname}
+          classNames="router-fade"
+          timeout={600}
+        >
+          <Switch>
+            <Route exact path="/">
+              <FrontPage />
+            </Route>
+            <Route exact path="/tutorial">
+              <Tutorial />
+            </Route>
+            <Route path="/comic/:pageId">
+              <ComicViewer pages={pages} />
+            </Route>
+          </Switch>
+        </CSSTransition>
+      </TransitionGroup>
     </div>
-  </Router>
-);
+  );
+};
 
 export default App;

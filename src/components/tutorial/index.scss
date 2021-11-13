@@ -2,5 +2,43 @@
 .tutorial {
   width: 100%;
   height: 100%;
+
+  > img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+  }
 }
 
+.tutorial-content,
+.tutorial-step-container,
+.tutorial-step {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.tutorial-step-container {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.tutorial-fade-enter {
+  opacity: 0;
+}
+.tutorial-fade-exit {
+  opacity: 1;
+}
+.tutorial-fade-enter-active {
+  opacity: 1;
+}
+.tutorial-fade-exit-active {
+  opacity: 0;
+}
+.tutorial-fade-enter-active,
+.tutorial-fade-exit-active {
+  transition: opacity 500ms;
+}

@@ -18,7 +18,7 @@ const FrontPage: React.FC = () => (
     <div className="mide-title-logo">
       <img src={MainTitleLogo} alt="Main Title Logo" />
     </div>
-    <Link to="/comic/page-1" className="mide-text main-title-button">
+    <Link to="/tutorial" className="mide-text main-title-button">
       <span>EMPEZAR</span>
     </Link>
   </div>

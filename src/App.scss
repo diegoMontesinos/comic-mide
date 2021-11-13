@@ -10,7 +10,8 @@ button {
   font-weight: bold;
 }
 
-.app-comic {
+.app-comic,
+.app-comic > div {
   width: 100%;
   height: 100%;
   background-color: black;
@@ -19,6 +20,24 @@ button {
 .disabled {
   pointer-events: none;
   opacity: 0.5;
+}
+
+.router-fade-enter {
+  opacity: 0;
+}
+
+.router-fade-enter-active {
+  opacity: 1;
+  transition: opacity 400ms 200ms;
+}
+
+.router-fade-exit {
+  opacity: 1;
+}
+
+.router-fade-exit-active {
+  opacity: 0;
+  transition: opacity 400ms;
 }
 
 .comic-viewer,
@@ -31,28 +50,4 @@ button {
 
 .comic-page-hidden {
   opacity: 0.0;
-}
-
-.comic-controls {
-  width: 100%;
-  height: 100%;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.go-fwd-btn,
-.go-back-btn {
-  position: absolute;
-  top: 50%;
-  transition: opacity 0.4s ease;
-}
-
-.go-fwd-btn {
-  right: 2.5%;
-}
-
-.go-back-btn {
-  left: 2.5%;
 }
