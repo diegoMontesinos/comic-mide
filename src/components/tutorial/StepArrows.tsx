@@ -7,8 +7,6 @@ import GoForwardImg from '../../assets/go_fwd_white.svg';
 
 import ComicControls from '../shared/ComicControls';
 
-import './StepArrow.scss';
-
 const StepArrows: React.FC = () => (
   <div className="tutorial-step">
     <ComicControls backImg={GoBackImg} forwardImg={GoForwardImg} />

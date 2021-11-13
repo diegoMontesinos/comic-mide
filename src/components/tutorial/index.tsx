@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 
 import TutorialBackgroundImg from '../../assets/tutorial-background.svg';
 
 import './index.scss';
 
+import TutorialStepper from './TutorialStepper';
 import StepArrows from './StepArrows';
 import StepSound from './StepSound';
+import StepMenu from './StepMenu';
 
 const TOTAL_STEPS = 4;
 
@@ -42,10 +44,19 @@ const Tutorial: React.FC = () => {
             >
               {step === 0 && <StepArrows />}
               {step === 1 && <StepSound />}
+              {step === 2 && <StepMenu />}
             </div>
           </CSSTransition>
         </SwitchTransition>
       </div>
+
+      <Link to="/" className="mide-text skip-tutorial">Saltar tutorial</Link>
+
+      <TutorialStepper
+        maxSteps={TOTAL_STEPS}
+        value={step}
+        onChange={(value) => { setStep(value); }}
+      />
     </div>
   );
 };
