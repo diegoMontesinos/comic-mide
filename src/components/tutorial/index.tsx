@@ -10,6 +10,7 @@ import TutorialStepper from './TutorialStepper';
 import StepArrows from './StepArrows';
 import StepSound from './StepSound';
 import StepMenu from './StepMenu';
+import StepNavigator from './StepNavigator';
 
 const TOTAL_STEPS = 4;
 
@@ -45,6 +46,7 @@ const Tutorial: React.FC = () => {
               {step === 0 && <StepArrows />}
               {step === 1 && <StepSound />}
               {step === 2 && <StepMenu />}
+              {step === 3 && <StepNavigator />}
             </div>
           </CSSTransition>
         </SwitchTransition>

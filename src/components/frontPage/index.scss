@@ -39,7 +39,7 @@
   }
 }
 
-.main-title-button {
+.primary-btn {
   width: 16%;
   max-width: 212px;
   height: 65px;
@@ -50,9 +50,11 @@
   border: 2px solid #FFFFFF;
   box-sizing: border-box;
   border-radius: 29px;
-  
+
   font-size: 23px;
   text-decoration: none;
+}
 
+.main-title-btn {
   top: 28%;
 }
