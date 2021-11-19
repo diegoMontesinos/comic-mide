@@ -52,7 +52,7 @@ const Tutorial: React.FC = () => {
         </SwitchTransition>
       </div>
 
-      <Link to="/" className="mide-text skip-tutorial">Saltar tutorial</Link>
+      <Link to="/comic" className="mide-text skip-tutorial">Saltar tutorial</Link>
 
       <TutorialStepper
         maxSteps={TOTAL_STEPS}

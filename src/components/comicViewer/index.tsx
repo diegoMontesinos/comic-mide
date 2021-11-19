@@ -2,10 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { useParams } from 'react-router-dom';
 
-import GoForwardImg from '../../assets/go_fwd.svg';
-import GoBackImg from '../../assets/go_back.svg';
-
 import ComicPage, { ComicPageRef } from './ComicPage';
+import AppBar from '../shared/AppBar';
+import ComicControls from '../shared/ComicControls';
 
 enum PlayingState {
   READING,
@@ -101,6 +100,8 @@ const ComicViewer: React.FC<Props> = ({ pages }) => {
 
   return (
     <div className="comic-viewer">
+      <AppBar />
+
       <ComicPage
         ref={pageRef}
         intro={currentPage.intro}
@@ -110,31 +111,18 @@ const ComicViewer: React.FC<Props> = ({ pages }) => {
         onFadeComplete={handleCompleteFadeOut}
       />
 
-      <div className="comic-controls">
-        {currentPageNumber > 0 && (
-          <button
-            className={`go-back-btn ${
-              playingState !== PlayingState.READING ? 'disabled' : 'enabled'
-            }`}
-            type="button"
-            onClick={handleBack}
-          >
-            <img src={GoBackImg} alt="Go Back" />
-          </button>
-        )}
-
-        {currentPageNumber < pages.length - 1 && (
-          <button
-            className={`go-fwd-btn ${
-              playingState !== PlayingState.READING ? 'disabled' : 'enabled'
-            }`}
-            type="button"
-            onClick={handleForward}
-          >
-            <img src={GoForwardImg} alt="Go Forward" />
-          </button>
-        )}
-      </div>
+      <ComicControls
+        showBack={currentPageNumber > 0}
+        showForward={currentPageNumber < pages.length - 1}
+        classBack={
+          playingState !== PlayingState.READING ? 'disabled' : 'enabled'
+        }
+        classForward={
+          playingState !== PlayingState.READING ? 'disabled' : 'enabled'
+        }
+        handleBack={handleBack}
+        handleForward={handleForward}
+      />
     </div>
   );
 };

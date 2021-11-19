@@ -44,10 +44,10 @@ button {
 .comic-page {
   width: 100%;
   height: 100%;
-  opacity: 1.0;
+  opacity: 1;
   transition: opacity 0.4s ease;
 }
 
 .comic-page-hidden {
-  opacity: 0.0;
+  opacity: 0;
 }

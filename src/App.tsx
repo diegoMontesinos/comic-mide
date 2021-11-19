@@ -19,25 +19,20 @@ const App: React.FC = () => {
 
   return (
     <div className="app-comic">
-      <TransitionGroup>
-        <CSSTransition
-          key={location.pathname}
-          classNames="router-fade"
-          timeout={600}
-        >
-          <Switch>
-            <Route exact path="/">
-              <FrontPage />
-            </Route>
-            <Route exact path="/tutorial">
-              <Tutorial />
-            </Route>
-            <Route path="/comic/:pageId">
-              <ComicViewer pages={pages} />
-            </Route>
-          </Switch>
-        </CSSTransition>
-      </TransitionGroup>
+      <Switch>
+        <Route exact path="/">
+          <FrontPage />
+        </Route>
+        <Route exact path="/tutorial">
+          <Tutorial />
+        </Route>
+        <Route exact path="/comic">
+          <ComicViewer pages={pages} />
+        </Route>
+        <Route path="/comic/:pageId">
+          <ComicViewer pages={pages} />
+        </Route>
+      </Switch>
     </div>
   );
 };

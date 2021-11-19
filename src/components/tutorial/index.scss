@@ -1,3 +1,4 @@
+@import '../../scss/variables.scss';
 
 .tutorial {
   width: 100%;
@@ -60,7 +61,7 @@
 }
 
 .tutorial-stepper {
-  width: 16%;
+  width: 150px;
   height: 40px;
 
   position: absolute;
@@ -74,24 +75,24 @@
 }
 
 .tutorial-step-nav {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border-radius: 100%;
   background: rgba(196, 196, 196, 0.6);
   transition: all 0.3s ease;
 
   &.active {
     transform: scale(1.25);
-    background: #C4C4C4;
+    background: #c4c4c4;
   }
 }
 
 .tutorial-arrow {
-  width: 24%;
+  width: 22%;
   height: auto;
 
   position: absolute;
-  top: 50%;
+  top: 48%;
 
   &.left {
     left: 9%;
@@ -114,13 +115,18 @@
 }
 
 .tutorial-arrow-sound {
-  width: 24%;
+  width: 20%;
   height: auto;
 
   position: absolute;
   top: 2%;
-  left: 10%;
+  left: 8%;
   z-index: 200;
+
+  @media screen and (min-width: $l-breakpoint) {
+    width: 14%;
+    left: 6.5%;
+  }
 }
 
 .tutorial-sound-text {
@@ -128,9 +134,13 @@
   font-size: 2em;
 
   position: absolute;
-  left: 34%;
-  top: 38%;
+  left: 30%;
+  top: 30%;
   transform: translate(-50%, 0);
+
+  @media screen and (min-width: $l-breakpoint) {
+    left: 22%;
+  }
 }
 
 .tutorial-arrow-menu {
@@ -139,8 +149,12 @@
 
   position: absolute;
   top: 8%;
-  left: 67%;
+  right: 3%;
   z-index: 200;
+
+  @media screen and (min-width: $l-breakpoint) {
+    width: 20%;
+  }
 }
 
 .tutorial-menu-text {
@@ -149,19 +163,29 @@
   font-size: 2em;
 
   position: absolute;
-  left: 68%;
-  top: 50%;
+  right: 1%;
+  top: 48%;
   transform: translate(-50%, 0);
+
+  @media screen and (min-width: $l-breakpoint) {
+    width: 26%;
+    right: -4%;
+    top: 46%;
+  }
 }
 
 .tutorial-arrow-navigator {
-  width: 26%;
+  width: 22%;
   height: auto;
 
   position: absolute;
-  top: 74%;
-  left: 54%;
+  top: 2%;
+  left: 55%;
   z-index: 200;
+
+  @media screen and (min-width: $l-breakpoint) {
+    width: 16%;
+  }
 }
 
 .tutorial-navigator-text {
@@ -170,14 +194,22 @@
   font-size: 2em;
 
   position: absolute;
-  left: 48%;
-  top: 64%;
+  left: 50%;
+  top: 18%;
   transform: translate(-50%, 0);
+
+  @media screen and (min-width: $l-breakpoint) {
+    width: 26%;
+  }
+}
+
+.tutorial-navigator .comic-navigator {
+  pointer-events: none;
 }
 
 .go-to-comic {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -50%);
 }
