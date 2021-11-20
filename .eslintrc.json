@@ -29,6 +29,7 @@
     "no-shadow": "off",
     "no-use-before-define": "off",
     "comma-dangle": "off",
+    "operator-linebreak": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

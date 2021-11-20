@@ -2,17 +2,11 @@ import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-import ComicViewer from './components/comicViewer';
-import FrontPage from './components/frontPage';
-import Tutorial from './components/tutorial';
+import HomePage from './components/home';
+import TutorialPage from './components/tutorial';
+import Comic from './components/comic';
 
 import './App.scss';
-
-const pages = [
-  { id: 'page-1', intro: 'ilu_01_intro.json', outro: 'ilu_01_outro.json' },
-  { id: 'page-2', intro: 'ilu_02_intro.json', outro: 'ilu_02_outro.json' },
-  { id: 'page-3', intro: 'ilu_03_intro.json', outro: 'ilu_03_outro.json' },
-];
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -27,16 +21,16 @@ const App: React.FC = () => {
         >
           <Switch>
             <Route exact path="/">
-              <FrontPage />
+              <HomePage />
             </Route>
             <Route exact path="/tutorial">
-              <Tutorial />
+              <TutorialPage />
             </Route>
             <Route exact path="/comic">
-              <ComicViewer pages={pages} />
+              <Comic />
             </Route>
             <Route path="/comic/:pageId">
-              <ComicViewer pages={pages} />
+              <Comic />
             </Route>
           </Switch>
         </CSSTransition>

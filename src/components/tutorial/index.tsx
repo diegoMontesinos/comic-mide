@@ -14,11 +14,11 @@ import StepNavigator from './StepNavigator';
 
 const TOTAL_STEPS = 4;
 
-const Tutorial: React.FC = () => {
+const TutorialPage: React.FC = () => {
   const [step, setStep] = useState<number>(0);
 
   const nextStep = (): void => {
-    if (step < (TOTAL_STEPS - 1)) {
+    if (step < TOTAL_STEPS - 1) {
       setStep(step + 1);
     }
   };
@@ -29,11 +29,7 @@ const Tutorial: React.FC = () => {
 
       <div className="tutorial-content">
         <SwitchTransition>
-          <CSSTransition
-            key={step}
-            classNames="tutorial-fade"
-            timeout={200}
-          >
+          <CSSTransition key={step} classNames="tutorial-fade" timeout={200}>
             <div
               className="tutorial-step-container"
               onClick={nextStep}
@@ -52,15 +48,19 @@ const Tutorial: React.FC = () => {
         </SwitchTransition>
       </div>
 
-      <Link to="/comic" className="mide-text skip-tutorial">Saltar tutorial</Link>
+      <Link to="/comic" className="mide-text skip-tutorial">
+        Saltar tutorial
+      </Link>
 
       <TutorialStepper
         maxSteps={TOTAL_STEPS}
         value={step}
-        onChange={(value) => { setStep(value); }}
+        onChange={(value) => {
+          setStep(value);
+        }}
       />
     </div>
   );
 };
 
-export default Tutorial;
+export default TutorialPage;

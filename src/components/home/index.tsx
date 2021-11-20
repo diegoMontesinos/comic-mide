@@ -7,8 +7,8 @@ import MainTitleLogo from '../../assets/main-title-logo.svg';
 
 import './index.scss';
 
-const FrontPage: React.FC = () => (
-  <div className="front-page">
+const HomePage: React.FC = () => (
+  <div className="home-page">
     <div className="main-title-img">
       <img src={MainTitleImg} alt="Main title" />
     </div>
@@ -24,4 +24,4 @@ const FrontPage: React.FC = () => (
   </div>
 );
 
-export default FrontPage;
+export default HomePage;
