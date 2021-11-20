@@ -1,0 +1,47 @@
+.side-menu {
+  width: 438px;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.6) 100%);
+  transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+  &.hidden {
+    right: -438px;
+  }
+
+  &.shown {
+    right: 0;
+  }
+}
+
+.side-menu-content {
+  padding-top: 10vh;
+}
+
+.side-menu-close-btn {
+  width: 44px;
+  position: absolute;
+  top: 22px;
+  right: 36px;
+
+  > img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.side-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .side-menu-list-item {
+    font-size: 3em;
+    padding: 0 42px;
+    margin: 26px 0;
+  }
+}

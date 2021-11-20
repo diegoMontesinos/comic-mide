@@ -4,6 +4,8 @@ import AppBarSoundOnImg from '../../assets/appbar-sound-on.svg';
 import NavigatorBtnImg from '../../assets/appbar-navigator.svg';
 import AppBarMenuImg from '../../assets/appbar-menu.svg';
 
+import SideMenu from './SideMenu';
+
 import './AppBar.scss';
 
 export interface AppBarProps {
@@ -12,6 +14,7 @@ export interface AppBarProps {
 
 const AppBar: React.FC<AppBarProps> = ({ alwaysActive = false }) => {
   const [hidden, setHidden] = useState<boolean>(!alwaysActive);
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   const showAppBar = (): void => {
     if (alwaysActive) return;
@@ -43,9 +46,22 @@ const AppBar: React.FC<AppBarProps> = ({ alwaysActive = false }) => {
           <img src={NavigatorBtnImg} alt="Trigger navigation" />
         </button>
 
-        <button className="app-bar-btn app-bar-menu-btn" type="button">
+        <button
+          className="app-bar-btn app-bar-menu-btn"
+          type="button"
+          onClick={() => {
+            setOpenMenu(true);
+          }}
+        >
           <img src={AppBarMenuImg} alt="Toggle menu" />
         </button>
+
+        <SideMenu
+          open={openMenu}
+          onClose={() => {
+            setOpenMenu(false);
+          }}
+        />
       </div>
     </div>
   );
