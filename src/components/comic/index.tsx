@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import AppBar from '../shared/AppBar';
 import ComicControls from '../shared/ComicControls';
@@ -19,11 +20,13 @@ enum PlayingState {
 
 const Comic: React.FC = () => {
   const [currentPageIndex, setCurrentPageIndex] =
-    useState<number>(0);
+    useState<number>(-1);
   const [playingState, setPlayingState] =
     useState<PlayingState>(PlayingState.WAITING);
 
   const pageRef = useRef<ComicPageRef>(null);
+
+  const { pageId } = useParams() as { pageId: string };
 
   const onLoadIntro = (): void => {
     setPlayingState(PlayingState.PLAYING_INTRO);
@@ -67,7 +70,20 @@ const Comic: React.FC = () => {
   };
 
   useEffect(() => {
-    if (!pageRef.current) return;
+    if (!pageId) {
+      setCurrentPageIndex(0);
+      return;
+    }
+
+    // Get page index based on the id
+    const page = pages.find(({ id }) => id === pageId);
+    if (page) {
+      setCurrentPageIndex(pages.indexOf(page));
+    }
+  }, [pageId]);
+
+  useEffect(() => {
+    if (!pageRef.current || currentPageIndex === -1) return;
 
     const currentPage = pages[currentPageIndex];
     pageRef.current?.setPage(currentPage);
