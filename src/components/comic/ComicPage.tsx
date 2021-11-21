@@ -1,5 +1,4 @@
 import React, {
-  useEffect,
   useImperativeHandle,
   useRef,
   useState,
@@ -9,7 +8,6 @@ import lottie, { AnimationItem } from 'lottie-web';
 import { PageData } from '../../interfaces/comic';
 
 export interface ComicPageProps {
-  page: PageData;
   onLoadIntro: () => void;
   onCompleteIntro: () => void;
   onCompleteOutro: () => void;
@@ -17,9 +15,9 @@ export interface ComicPageProps {
 }
 
 export interface ComicPageRef {
+  setPage: (page: PageData) => void;
   playIntro: () => void;
   playOutro: () => void;
-  destroy: () => void;
   fadeOut: () => void;
 }
 
@@ -30,7 +28,6 @@ const ComicPage = React.forwardRef<
   ComicPageProps
 >((props, ref) => {
   const {
-    page,
     onLoadIntro,
     onCompleteIntro,
     onCompleteOutro,
@@ -45,7 +42,56 @@ const ComicPage = React.forwardRef<
   const introAnimation = useRef<AnimationItem | null>(null);
   const outroAnimation = useRef<AnimationItem | null>(null);
 
+  const loadAnimation = (
+    src: string,
+    container: HTMLDivElement
+  ): AnimationItem =>
+    // eslint-disable-next-line implicit-arrow-linebreak
+    lottie.loadAnimation({
+      container,
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      path: `${process.env.PUBLIC_URL}/${ANIMATION_BASEPATH}${src}`,
+    });
+
+  const destroyAnimations = (): void => {
+    if (
+      !introContainer.current ||
+      !outroContainer.current ||
+      !introAnimation.current ||
+      !outroAnimation.current
+    ) {
+      return;
+    }
+
+    introContainer.current.style.display = 'initial';
+    outroContainer.current.style.display = 'initial';
+
+    introAnimation.current.destroy();
+    outroAnimation.current.destroy();
+  };
+
   useImperativeHandle(ref, () => ({
+    setPage(page) {
+      setIsFading(false);
+      destroyAnimations();
+
+      const introElem = introContainer.current;
+      const outroElem = outroContainer.current;
+      if (!introElem || !outroElem) return;
+
+      // Load Intro
+      const intro = loadAnimation(page.intro, introElem);
+      intro.addEventListener('config_ready', onLoadIntro);
+      intro.addEventListener('complete', onCompleteIntro);
+      introAnimation.current = intro;
+
+      // Load Outro
+      const outro = loadAnimation(page.outro, outroElem);
+      outro.addEventListener('complete', onCompleteOutro);
+      outroAnimation.current = outro;
+    },
     playIntro() {
       if (
         !introContainer.current ||
@@ -54,8 +100,6 @@ const ComicPage = React.forwardRef<
       ) {
         return;
       }
-
-      console.log(123);
 
       introContainer.current.style.display = 'initial';
       outroContainer.current.style.display = 'none';
@@ -76,80 +120,17 @@ const ComicPage = React.forwardRef<
 
       outroAnimation.current.play();
     },
-    destroy() {
-      if (
-        !introContainer.current ||
-        !outroContainer.current ||
-        !introAnimation.current ||
-        !outroAnimation.current
-      ) {
-        return;
-      }
-
-      introContainer.current.style.display = 'initial';
-      outroContainer.current.style.display = 'initial';
-
-      introAnimation.current.destroy();
-      outroAnimation.current.destroy();
-    },
     fadeOut() {
       setIsFading(true);
     },
   }));
-
-  useEffect(() => {
-    const introContainerElem = introContainer.current;
-    const outroContainerElem = outroContainer.current;
-    if (!introContainerElem || !outroContainerElem) return;
-
-    introAnimation.current = lottie.loadAnimation({
-      container: introContainerElem,
-      renderer: 'svg',
-      loop: false,
-      autoplay: false,
-      path: `${process.env.PUBLIC_URL}/${ANIMATION_BASEPATH}${page.intro}`,
-    });
-
-    introAnimation.current.addEventListener(
-      'config_ready',
-      onLoadIntro
-    );
-
-    introAnimation.current.addEventListener(
-      'complete',
-      onCompleteIntro
-    );
-
-    outroAnimation.current = lottie.loadAnimation({
-      container: outroContainerElem,
-      renderer: 'svg',
-      loop: false,
-      autoplay: false,
-      path: `${process.env.PUBLIC_URL}/${ANIMATION_BASEPATH}${page.outro}`,
-    });
-
-    outroAnimation.current.addEventListener(
-      'complete',
-      onCompleteOutro
-    );
-
-    setIsFading(false);
-  }, [
-    onCompleteIntro,
-    onCompleteOutro,
-    onLoadIntro,
-    page.intro,
-    page.outro,
-  ]);
 
   return (
     <div
       className={`comic-page ${
         isFading ? 'comic-page-hidden' : ''
       }`}
-      onTransitionEnd={() => {
-        onFadeComplete();
-      }}
+      onTransitionEnd={onFadeComplete}
     >
       <div
         className="intro-animation"

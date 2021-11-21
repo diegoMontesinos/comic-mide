@@ -13,78 +13,93 @@ enum PlayingState {
   PLAYING_INTRO,
   READING,
   PLAYING_OUTRO,
-  FADING_OUT,
+  FADING_TO_NEXT,
+  FADING_TO_PREV,
 }
 
 const Comic: React.FC = () => {
-  const [currentPageIndex] = useState<number>(0);
+  const [currentPageIndex, setCurrentPageIndex] =
+    useState<number>(0);
   const [playingState, setPlayingState] =
     useState<PlayingState>(PlayingState.WAITING);
 
   const pageRef = useRef<ComicPageRef>(null);
 
   const onLoadIntro = (): void => {
-    if (playingState !== PlayingState.WAITING) return;
     setPlayingState(PlayingState.PLAYING_INTRO);
   };
 
-  const handleCompleteIntro = async (): Promise<void> => {
-    // await setPlayingState(PlayingState.READING);
+  const onCompleteIntro = (): void => {
+    setPlayingState(PlayingState.READING);
   };
 
-  const handleCompleteOutro = (): void => {
-    // setPlayingState(PlayingState.READING);
-    // if (
-    //   currentPageNumber < pages.length - 1 &&
-    //   pageRef.current
-    // ) {
-    //   pageRef.current.destroy();
-    //   setCurrentPageNumber(currentPageNumber + 1);
-    // }
+  const onCompleteOutro = (): void => {
+    setPlayingState(PlayingState.FADING_TO_NEXT);
   };
 
-  const handleCompleteFadeOut = (): void => {
-    // if (playingState !== PlayingState.FADING_OUT) return;
-    // setPlayingState(PlayingState.READING);
-    // if (currentPageNumber > 0 && pageRef.current) {
-    //   pageRef.current.destroy();
-    //   setCurrentPageNumber(currentPageNumber - 1);
-    // }
+  const onFadeComplete = (): void => {
+    // pageRef.current?.destroy();
+
+    if (
+      playingState === PlayingState.FADING_TO_NEXT &&
+      currentPageIndex < pages.length - 1
+    ) {
+      setCurrentPageIndex(currentPageIndex + 1);
+    }
+
+    if (
+      playingState === PlayingState.FADING_TO_PREV &&
+      currentPageIndex > 0
+    ) {
+      setCurrentPageIndex(currentPageIndex - 1);
+    }
+
+    setPlayingState(PlayingState.WAITING);
   };
 
   const handleBack = (): void => {
-    // if (!pageRef.current) return;
-    // setPlayingState(PlayingState.FADING_OUT);
-    // pageRef.current.fadeOut();
+    setPlayingState(PlayingState.FADING_TO_PREV);
+    pageRef.current?.fadeOut();
   };
 
   const handleForward = (): void => {
-    // if (!pageRef.current) return;
-    // setPlayingState(PlayingState.PLAYING_OUTRO);
-    // pageRef.current.playOutro();
+    setPlayingState(PlayingState.PLAYING_OUTRO);
   };
 
   useEffect(() => {
     if (!pageRef.current) return;
 
+    const currentPage = pages[currentPageIndex];
+    pageRef.current?.setPage(currentPage);
+  }, [currentPageIndex]);
+
+  useEffect(() => {
     if (playingState === PlayingState.PLAYING_INTRO) {
-      console.log('Plaaaay!');
       pageRef.current?.playIntro();
+    }
+
+    if (playingState === PlayingState.PLAYING_OUTRO) {
+      pageRef.current?.playOutro();
+    }
+
+    if (
+      playingState === PlayingState.FADING_TO_PREV ||
+      playingState === PlayingState.FADING_TO_NEXT
+    ) {
+      pageRef.current?.fadeOut();
     }
   }, [playingState]);
 
-  if (currentPageIndex === -1) return null;
   return (
-    <div className="comic-viewer">
+    <div className="comic">
       <AppBar />
 
       <ComicPage
         ref={pageRef}
         onLoadIntro={onLoadIntro}
-        page={pages[currentPageIndex]}
-        onCompleteIntro={handleCompleteIntro}
-        onCompleteOutro={handleCompleteOutro}
-        onFadeComplete={handleCompleteFadeOut}
+        onCompleteIntro={onCompleteIntro}
+        onCompleteOutro={onCompleteOutro}
+        onFadeComplete={onFadeComplete}
       />
 
       <ComicControls
