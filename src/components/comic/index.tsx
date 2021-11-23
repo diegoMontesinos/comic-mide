@@ -5,7 +5,7 @@ import AppBar from '../shared/AppBar';
 import ComicControls from '../shared/ComicControls';
 import ComicPage, { ComicPageRef } from './ComicPage';
 
-import pages from './pagesData';
+import pages from '../../pageData';
 
 import './index.scss';
 
@@ -90,20 +90,27 @@ const Comic: React.FC = () => {
   }, [currentPageIndex]);
 
   useEffect(() => {
+    const page = pageRef.current;
+    if (!page) return undefined;
+
     if (playingState === PlayingState.PLAYING_INTRO) {
-      pageRef.current?.playIntro();
+      page.playIntro();
     }
 
     if (playingState === PlayingState.PLAYING_OUTRO) {
-      pageRef.current?.playOutro();
+      page.playOutro();
     }
 
     if (
       playingState === PlayingState.FADING_TO_PREV ||
       playingState === PlayingState.FADING_TO_NEXT
     ) {
-      pageRef.current?.fadeOut();
+      page.fadeOut();
     }
+
+    return () => {
+      page.cancelFade();
+    };
   }, [playingState]);
 
   return (
@@ -115,7 +122,12 @@ const Comic: React.FC = () => {
         onLoadIntro={onLoadIntro}
         onCompleteIntro={onCompleteIntro}
         onCompleteOutro={onCompleteOutro}
-        onFadeComplete={onFadeComplete}
+        onFadeComplete={
+          playingState === PlayingState.FADING_TO_PREV ||
+          playingState === PlayingState.FADING_TO_NEXT
+            ? onFadeComplete
+            : undefined
+        }
       />
 
       <ComicControls

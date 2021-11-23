@@ -123,7 +123,7 @@
   left: 8%;
   z-index: 200;
 
-  @media screen and (min-width: $l-breakpoint) {
+  @media screen and (min-width: $lg-down) {
     width: 14%;
     left: 6.5%;
   }
@@ -138,7 +138,7 @@
   top: 30%;
   transform: translate(-50%, 0);
 
-  @media screen and (min-width: $l-breakpoint) {
+  @media screen and (min-width: $lg-down) {
     left: 22%;
   }
 }
@@ -152,7 +152,7 @@
   right: 3%;
   z-index: 200;
 
-  @media screen and (min-width: $l-breakpoint) {
+  @media screen and (min-width: $lg-down) {
     width: 20%;
   }
 }
@@ -167,7 +167,7 @@
   top: 48%;
   transform: translate(-50%, 0);
 
-  @media screen and (min-width: $l-breakpoint) {
+  @media screen and (min-width: $lg-down) {
     width: 26%;
     right: -4%;
     top: 46%;
@@ -183,7 +183,7 @@
   left: 55%;
   z-index: 200;
 
-  @media screen and (min-width: $l-breakpoint) {
+  @media screen and (min-width: $lg-down) {
     width: 16%;
   }
 }
@@ -198,7 +198,7 @@
   top: 18%;
   transform: translate(-50%, 0);
 
-  @media screen and (min-width: $l-breakpoint) {
+  @media screen and (min-width: $lg-down) {
     width: 26%;
   }
 }

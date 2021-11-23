@@ -1,10 +1,19 @@
 import React from 'react';
-import { Switch, Route, useLocation } from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import {
+  Switch,
+  Route,
+  useLocation,
+} from 'react-router-dom';
+import {
+  TransitionGroup,
+  CSSTransition,
+} from 'react-transition-group';
 
+import AboutPage from './components/about';
+import Comic from './components/comic';
+import ContentPage from './components/content';
 import HomePage from './components/home';
 import TutorialPage from './components/tutorial';
-import Comic from './components/comic';
 
 import './App.scss';
 
@@ -31,6 +40,12 @@ const App: React.FC = () => {
             </Route>
             <Route path="/comic/:pageId">
               <Comic />
+            </Route>
+            <Route path="/about">
+              <AboutPage />
+            </Route>
+            <Route path="/content">
+              <ContentPage />
             </Route>
           </Switch>
         </CSSTransition>

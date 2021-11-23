@@ -10,7 +10,10 @@ export interface SideMenuProps {
   onClose: () => void;
 }
 
-const SideMenu: React.FC<SideMenuProps> = ({ open, onClose }) => (
+const SideMenu: React.FC<SideMenuProps> = ({
+  open,
+  onClose,
+}) => (
   <div className={`side-menu ${open ? 'shown' : 'hidden'}`}>
     <div className="side-menu-content">
       <button
@@ -35,12 +38,12 @@ const SideMenu: React.FC<SideMenuProps> = ({ open, onClose }) => (
           </Link>
         </li>
         <li className="side-menu-list-item">
-          <Link className="mide-text" to="/">
+          <Link className="mide-text" to="/about">
             Créditos
           </Link>
         </li>
         <li className="side-menu-list-item">
-          <Link className="mide-text" to="/">
+          <Link className="mide-text" to="/content">
             Contenido
           </Link>
         </li>

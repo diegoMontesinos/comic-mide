@@ -1,12 +1,19 @@
+@import '../../scss/variables.scss';
+
 .side-menu {
-  width: 438px;
+  width: 100vw;
+  max-width: 438px;
   height: 100vh;
 
   position: fixed;
   top: 0;
   right: 0;
 
-  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.6) 100%);
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
   transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
   &.hidden {
@@ -19,7 +26,11 @@
 }
 
 .side-menu-content {
-  padding-top: 10vh;
+  padding-top: 14vh;
+
+  @media screen and (max-width: $sm-up) {
+    padding-top: 4vh;
+  }
 }
 
 .side-menu-close-btn {
@@ -40,8 +51,13 @@
   padding: 0;
 
   .side-menu-list-item {
-    font-size: 3em;
-    padding: 0 42px;
-    margin: 26px 0;
+    font-size: 3.25em;
+    text-align: center;
+    margin: 48px 0;
+
+    @media screen and (max-width: $sm-up) {
+      font-size: 2.25em;
+      margin: 56px 0;
+    }
   }
 }

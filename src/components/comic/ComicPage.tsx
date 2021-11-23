@@ -11,7 +11,7 @@ export interface ComicPageProps {
   onLoadIntro: () => void;
   onCompleteIntro: () => void;
   onCompleteOutro: () => void;
-  onFadeComplete: () => void;
+  onFadeComplete?: () => void;
 }
 
 export interface ComicPageRef {
@@ -19,6 +19,7 @@ export interface ComicPageRef {
   playIntro: () => void;
   playOutro: () => void;
   fadeOut: () => void;
+  cancelFade: () => void;
 }
 
 const ANIMATION_BASEPATH = 'animations/';
@@ -123,6 +124,9 @@ const ComicPage = React.forwardRef<
     fadeOut() {
       setIsFading(true);
     },
+    cancelFade() {
+      setIsFading(false);
+    },
   }));
 
   return (
@@ -130,7 +134,12 @@ const ComicPage = React.forwardRef<
       className={`comic-page ${
         isFading ? 'comic-page-hidden' : ''
       }`}
-      onTransitionEnd={onFadeComplete}
+      onTransitionEnd={() => {
+        if (isFading && onFadeComplete) {
+          onFadeComplete();
+          setIsFading(false);
+        }
+      }}
     >
       <div
         className="intro-animation"
