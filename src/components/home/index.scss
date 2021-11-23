@@ -1,7 +1,13 @@
+@import '../../scss/variables.scss';
+
 .home-page {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(180deg, #000000 0%, #506036 100%);
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    #506036 100%
+  );
 
   > * {
     margin: 0 auto;
@@ -10,39 +16,81 @@
 }
 
 .main-title-img {
-  width: 75%;
-  max-width: 1086px;
+  width: 92%;
+  max-width: 1058px;
   top: 12%;
 
   img {
     width: 100%;
     height: auto;
   }
+
+  @media screen and (max-width: $xs-up) {
+    top: 10%;
+  }
 }
 
 .welcome-text {
-  width: 36%;
-  max-width: 500px;
-  font-size: 30px;
-  line-height: 38px;
-  top: 16%;
+  width: 75%;
+  max-width: 514px;
+  font-size: 1.875em;
+  line-height: 1.257;
+  top: 20%;
   text-align: center;
+
+  @media screen and (max-width: $xs-up) {
+    font-size: 1.15em;
+    line-height: 1.44;
+    top: 14%;
+  }
+}
+
+.welcome-portrait-img {
+  display: none;
+
+  @media screen and (max-width: $xs-up) and (orientation: portrait) {
+    display: block;
+    width: 100%;
+    height: 6.25vh;
+    top: 18%;
+    text-align: center;
+
+    > img {
+      width: auto;
+      height: 100%;
+    }
+  }
+}
+
+.welcome-portrait-text {
+  display: none;
+
+  @media screen and (max-width: $xs-up) and (orientation: portrait) {
+    display: block;
+    width: 85%;
+    top: 22%;
+    text-align: center;
+  }
 }
 
 .mide-title-logo {
-  width: 11%;
-  top: 22%;
+  width: 28%;
+  max-width: 159px;
+  top: 26%;
 
-  img {
+  > img {
     width: 100%;
     height: auto;
+  }
+
+  @media screen and (max-width: $xs-up) {
+    top: 40%;
   }
 }
 
 .primary-btn {
-  width: 16%;
-  max-width: 212px;
-  height: 65px;
+  width: 212px;
+  height: 63px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,10 +99,18 @@
   box-sizing: border-box;
   border-radius: 29px;
 
-  font-size: 23px;
+  font-size: 1.4375em;
   text-decoration: none;
 }
 
 .main-title-btn {
-  top: 28%;
+  width: 16%;
+  max-width: 212px;
+  top: 34%;
+
+  @media screen and (max-width: $sm-down) {
+    width: 84%;
+    max-width: unset;
+    top: 20%;
+  }
 }
