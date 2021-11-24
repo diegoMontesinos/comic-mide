@@ -1,8 +1,4 @@
-import React, {
-  ReactElement,
-  useEffect,
-  useState,
-} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { PageData } from '../../interfaces/comic';
@@ -10,42 +6,6 @@ import { PageData } from '../../interfaces/comic';
 import pages from '../../pageData';
 
 import './index.scss';
-
-const renderCard = (page: PageData): ReactElement => (
-  <Link
-    className="comic-grid-card"
-    to={`/comic/${page.id}`}
-  >
-    <img src={page.thumbnail} alt="Page thumbnail" />
-    <div className="comic-grid-card-index">
-      <span className="mide-text">
-        {page.id.replace('page-', '')}
-      </span>
-    </div>
-  </Link>
-);
-
-const renderCards = (
-  pagesSelected: PageData[]
-): ReactElement[] => {
-  const rows = [];
-  for (let i = 0; i < pagesSelected.length; i += 3) {
-    rows.push(
-      <div
-        className="comic-grid-row"
-        key={`comic-row-${i}`}
-      >
-        {renderCard(pagesSelected[i])}
-        {i + 1 < pagesSelected.length &&
-          renderCard(pagesSelected[i + 1])}
-        {i + 2 < pagesSelected.length &&
-          renderCard(pagesSelected[i + 2])}
-      </div>
-    );
-  }
-
-  return rows;
-};
 
 const ContentPage: React.FC = () => {
   const [search, setSearch] = useState<string>('');
@@ -85,7 +45,24 @@ const ContentPage: React.FC = () => {
         </span>
       </div>
       <div className="comic-content-grid">
-        {renderCards(filtered)}
+        {filtered.map((page, idx) => (
+          <Link
+            // eslint-disable-next-line react/no-array-index-key
+            key={`comic-card-${idx}`}
+            className="comic-grid-card"
+            to={`/comic/${page.id}`}
+          >
+            <img
+              src={page.thumbnail}
+              alt="Page thumbnail"
+            />
+            <div className="comic-grid-card-index">
+              <span className="mide-text">
+                {page.id.replace('page-', '')}
+              </span>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );

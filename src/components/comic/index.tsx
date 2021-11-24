@@ -85,6 +85,12 @@ const Comic: React.FC = () => {
   useEffect(() => {
     if (!pageRef.current || currentPageIndex === -1) return;
 
+    window.history.pushState(
+      {},
+      '',
+      `/comic/${pages[currentPageIndex].id}`
+    );
+
     const currentPage = pages[currentPageIndex];
     pageRef.current?.setPage(currentPage);
   }, [currentPageIndex]);
