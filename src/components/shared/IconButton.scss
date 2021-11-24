@@ -1,0 +1,61 @@
+@import '../../scss/variables.scss';
+
+.icon-button {
+  fill: #ababab;
+  stroke: #ababab;
+
+  &.enabled {
+    fill: #ababab;
+    stroke: #ababab;
+  }
+
+  &.disabled {
+    fill: #6c6c6c;
+    stroke: #6c6c6c;
+  }
+
+  &.hover,
+  &:hover {
+    fill: #ffffff;
+    stroke: #ffffff;
+  }
+
+  &.focus,
+  &:focus {
+    fill: #e0dfff;
+    stroke: #e0dfff;
+  }
+
+  &.down,
+  &:active {
+    fill: #535353;
+    stroke: #535353;
+  }
+
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+
+  > svg {
+    height: 32px;
+  }
+
+  @media screen and (max-width: $sm-up) {
+    min-width: 40px;
+    min-height: 40px;
+
+    > svg {
+      height: 28px;
+    }
+  }
+
+  @media screen and (max-width: $xs-up) {
+    min-width: 20px;
+    min-height: 20px;
+
+    > svg {
+      height: 16px;
+    }
+  }
+}

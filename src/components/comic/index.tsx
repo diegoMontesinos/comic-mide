@@ -9,7 +9,7 @@ import pages from '../../pageData';
 
 import './index.scss';
 
-enum PlayingState {
+export enum PlayingState {
   WAITING,
   PLAYING_INTRO,
   READING,

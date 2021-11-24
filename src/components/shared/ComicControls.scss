@@ -1,3 +1,5 @@
+@import '../../scss/variables.scss';
+
 .comic-controls {
   width: 100%;
   height: 100%;
@@ -10,14 +12,23 @@
 .go-fwd-btn,
 .go-back-btn {
   position: absolute;
-  top: 50%;
+  top: 52%;
   transition: opacity 0.4s ease;
+
+  > img {
+    width: 80px;
+    height: auto;
+
+    @media screen and (max-width: $sm-up) {
+      width: 30px;
+    }
+  }
 }
 
 .go-fwd-btn {
-  right: 1.75%;
+  right: 1.05%;
 }
 
 .go-back-btn {
-  left: 1.75%;
+  left: 1.05%;
 }
