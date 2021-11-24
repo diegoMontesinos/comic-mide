@@ -1,3 +1,5 @@
+@import '../../scss/variables.scss';
+
 .about {
   width: 100vw;
   height: 100vh;
@@ -10,8 +12,8 @@
 
 .about-title,
 .about-content {
-  width: 92%;
-  max-width: 1350px;
+  width: 90%;
+  max-width: 1330px;
   position: relative;
   margin: 0 auto;
 }
@@ -19,27 +21,57 @@
 .about-title {
   font-size: 3.75em;
   margin-top: 40px;
+
+  @media screen and (max-width: $sm-up) {
+    font-size: 1.875em;
+    margin-top: 18px;
+    text-align: center;
+  }
 }
 
 .about-content {
-  margin-top: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   flex: 1;
 
-  display: flex;
-  flex-flow: row wrap;
-}
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(5, 76px);
 
-.about-content-column {
-  flex: 1;
+  @media screen and (max-width: $sm-up) {
+    margin-top: 12px;
+    margin-bottom: 4px;
+    text-align: center;
+    grid-template-rows: repeat(4, 50px);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: $xs-up) {
+    display: block;
+    margin-top: 20px;
+  }
 }
 
 .about-content-item {
   line-height: 1.5;
-  margin: 15px 0;
+  margin: 0;
+
+  @media screen and (max-width: $xs-up) {
+    margin: 10px 0;
+  }
 
   .about-content-title,
   .about-content-subtitle {
     font-size: 1em;
+
+    @media screen and (max-width: $sm-up) {
+      font-size: 0.625em;
+      line-height: 1.25;
+    }
+
+    @media screen and (max-width: $xs-up) {
+      font-size: 0.7em;
+    }
   }
 
   .about-content-title.mide-text {
@@ -48,5 +80,29 @@
 
   .about-content-subtitle.mide-text {
     font-weight: 400;
+  }
+}
+
+.about-content-logo {
+  height: 71px;
+  margin-top: 30px;
+
+  > img {
+    width: auto;
+    height: 100%;
+  }
+
+  @media screen and (max-width: $sm-up) {
+    height: 30px;
+    margin: 0;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  @media screen and (max-width: $xs-up) {
+    height: 38px;
+    top: 86%;
   }
 }
