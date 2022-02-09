@@ -13,7 +13,6 @@ export enum PlayingState {
   WAITING,
   PLAYING_INTRO,
   READING,
-  PLAYING_OUTRO,
   FADING_TO_NEXT,
   FADING_TO_PREV,
 }
@@ -34,10 +33,6 @@ const Comic: React.FC = () => {
 
   const onCompleteIntro = (): void => {
     setPlayingState(PlayingState.READING);
-  };
-
-  const onCompleteOutro = (): void => {
-    setPlayingState(PlayingState.FADING_TO_NEXT);
   };
 
   const onFadeComplete = (): void => {
@@ -66,7 +61,7 @@ const Comic: React.FC = () => {
   };
 
   const handleForward = (): void => {
-    setPlayingState(PlayingState.PLAYING_OUTRO);
+    setPlayingState(PlayingState.FADING_TO_NEXT);
   };
 
   useEffect(() => {
@@ -103,10 +98,6 @@ const Comic: React.FC = () => {
       page.playIntro();
     }
 
-    if (playingState === PlayingState.PLAYING_OUTRO) {
-      page.playOutro();
-    }
-
     if (
       playingState === PlayingState.FADING_TO_PREV ||
       playingState === PlayingState.FADING_TO_NEXT
@@ -127,7 +118,6 @@ const Comic: React.FC = () => {
         ref={pageRef}
         onLoadIntro={onLoadIntro}
         onCompleteIntro={onCompleteIntro}
-        onCompleteOutro={onCompleteOutro}
         onFadeComplete={
           playingState === PlayingState.FADING_TO_PREV ||
           playingState === PlayingState.FADING_TO_NEXT
