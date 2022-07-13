@@ -27,15 +27,17 @@ const HomePage: React.FC = () => (
         horizontal para una mejor experiencia.
       </span>
     </div>
-    <div className="mide-title-logo">
-      <img src={MainTitleLogoImg} alt="Main Title Logo" />
+    <div className="mide-log-btn">
+      <div className="mide-title-logo">
+        <img src={MainTitleLogoImg} alt="Main Title Logo" />
+      </div>
+      <Link
+        to="/tutorial"
+        className="mide-text primary-btn main-title-btn"
+      >
+        <span>EMPEZAR</span>
+      </Link>
     </div>
-    <Link
-      to="/tutorial"
-      className="mide-text primary-btn main-title-btn"
-    >
-      <span>EMPEZAR</span>
-    </Link>
   </div>
 );
 

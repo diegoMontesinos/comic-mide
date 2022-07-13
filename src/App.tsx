@@ -15,6 +15,7 @@ import ContentPage from './components/content';
 import HomePage from './components/home';
 import TutorialPage from './components/tutorial';
 
+import './scss/normalize.scss';
 import './App.scss';
 
 const App: React.FC = () => {

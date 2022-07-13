@@ -1,137 +1,140 @@
 @import '../../scss/variables.scss';
 
 .home-page {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(
     180deg,
     #000000 0%,
     #506036 100%
   );
 
-  > * {
-    margin: 0 auto;
-    position: relative;
-  }
-}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-.main-title-img {
-  width: 92%;
-  max-width: 1058px;
-  top: 12%;
+  .main-title-img {
+    width: 92%;
+    max-width: 340px;
+    margin-top: 12vh;
 
-  img {
-    width: 100%;
-    height: auto;
-  }
+    @media (max-width: $sm-max) and (orientation: landscape) {
+      margin-top: 6vh;
+    }
 
-  @media screen and (max-width: $sm-up) {
-    max-width: 380px;
-    top: 4%;
-  }
-
-  @media screen and (max-width: $xs-up) {
-    top: 8%;
-  }
-}
-
-.welcome-text {
-  width: 75%;
-  max-width: 514px;
-  font-size: 1.875em;
-  line-height: 1.44;
-  top: 20%;
-  text-align: center;
-
-  @media screen and (max-width: $sm-up) {
-    max-width: 268px;
-    font-size: 1.15em;
-    top: 6%;
-  }
-
-  @media screen and (max-width: $xs-up) {
-    font-size: 1.15em;
-    top: 14%;
-  }
-}
-
-.welcome-portrait-img {
-  display: none;
-
-  @media screen and (max-width: $xs-up) and (orientation: portrait) {
-    display: block;
-    width: 100%;
-    height: 6.25vh;
-    top: 18%;
-    text-align: center;
+    @media (min-width: $lg-min) {
+      max-width: 1058px;
+      margin-top: 14vh;
+    }
 
     > img {
-      width: auto;
-      height: 100%;
+      width: 100%;
+      height: auto;
     }
   }
-}
 
-.welcome-portrait-text {
-  display: none;
+  .welcome-text {
+    width: 74%;
 
-  @media screen and (max-width: $xs-up) and (orientation: portrait) {
-    display: block;
-    width: 85%;
-    top: 22%;
+    font-size: 1rem;
+    line-height: 23px;
     text-align: center;
+
+    margin-top: 6vh;
+
+    @media (max-width: $sm-max) and (orientation: landscape) {
+      margin-top: 4vh;
+      max-width: 268px;
+    }
+
+    @media (min-width: $lg-min) {
+      max-width: 514px;
+      line-height: 38px;
+      font-size: 1.875rem;
+      margin-top: 10vh;
+    }
   }
-}
 
-.mide-title-logo {
-  width: 28%;
-  max-width: 159px;
-  top: 26%;
+  .welcome-portrait-img {
+    display: none;
+    width: 14%;
+    margin-top: 6vh;
+    margin-bottom: 4vh;
 
-  > img {
+    > img {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: $sm-max) and (orientation: portrait) {
+      display: initial;
+    }
+  }
+
+  .welcome-portrait-text {
+    display: none;
+    width: 82%;
+    text-align: center;
+
+    font-size: 0.8125rem;
+    line-height: 18px;
+
+    @media (max-width: $sm-max) and (orientation: portrait) {
+      display: initial;
+    }
+  }
+
+  .mide-log-btn {
     width: 100%;
-    height: auto;
-  }
 
-  @media screen and (max-width: $sm-up) {
-    max-width: 100px;
-    top: 10%;
-  }
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 
-  @media screen and (max-width: $xs-up) {
-    top: 40%;
-  }
-}
+    @media (min-width: $sm-min) {
+      flex-direction: column;
+    }
 
-.primary-btn {
-  width: 212px;
-  height: 63px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    .main-title-btn {
+      width: 84%;
+      max-width: 280px;
+      height: 64px;
 
-  border: 2px solid #ffffff;
-  box-sizing: border-box;
-  border-radius: 29px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-  font-size: 1.4375em;
-  text-decoration: none;
-}
+      border: 2px solid #ffffff;
+      box-sizing: border-box;
+      border-radius: 29px;
 
-.main-title-btn {
-  width: 16%;
-  max-width: 212px;
-  top: 34%;
+      font-size: 1.4375em;
+      text-decoration: none;
 
-  @media screen and (max-width: $sm-up) {
-    width: 48%;
-    max-width: unset;
-    top: 16%;
-  }
+      margin-top: 4vh;
 
-  @media screen and (max-width: $xs-up) {
-    width: 84%;
-    max-width: unset;
-    top: 20%;
+      @media (min-width: $lg-min) {
+        max-width: 212px;
+        height: 66px;
+        margin-top: 8vh;
+      }
+    }
+
+    .mide-title-logo {
+      width: 28%;
+
+      max-width: 100px;
+      margin-top: 4vh;
+
+      @media (min-width: $lg-min) {
+        max-width: 160px;
+        margin-top: 6vh;
+      }
+
+      > img {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 }

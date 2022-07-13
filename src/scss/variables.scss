@@ -1,10 +1,21 @@
 // Breakpoints
-$xs-up: 360px;
+// xs: <= 480 (mobile)
+// sm: 481 - 768 (tablets and iPhone)
+// md: 769 - 1024 (small screens)
+// lg: >= 1025 (desktop)
 
-$sm-down: 361px;
-$sm-up: 640px;
+// Defining values
+$sm-min: 481px;
+$xs-max: ($sm-min - 1);
+$md-min: 769px;
+$sm-max: ($md-min - 1);
+$lg-min: 1025px;
+$md-max: ($lg-min - 1);
 
-$md-down: 641px;
-$md-up: 1440px;
-
-$lg-down: 1441px;
+// Usage
+// @media (max-width: $xs-max) { ... }
+// @media (min-width: $sm-min) { ... }
+// @media (max-width: $sm-max) { ... }
+// @media (min-width: $md-min) { ... }
+// @media (max-width: $md-max) { ... }
+// @media (min-width: $lg-min) { ... }

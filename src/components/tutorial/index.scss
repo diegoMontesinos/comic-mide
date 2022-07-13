@@ -26,10 +26,10 @@
   top: 10%;
   transform: translate(-50%, 0);
 
-  @media screen and (max-width: $sm-up) {
-    font-size: 1em;
-    top: 22%;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   font-size: 1em;
+  //   top: 22%;
+  // }
 }
 
 .tutorial-content,
@@ -81,9 +81,9 @@
   align-items: center;
   justify-content: space-evenly;
 
-  @media screen and (max-width: $sm-up) {
-    width: 100px;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   width: 100px;
+  // }
 }
 
 .tutorial-step-nav {
@@ -98,10 +98,10 @@
     background: #c4c4c4;
   }
 
-  @media screen and (max-width: $sm-up) {
-    width: 8px;
-    height: 8px;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   width: 8px;
+  //   height: 8px;
+  // }
 }
 
 .tutorial-arrow {
@@ -130,10 +130,10 @@
   top: 52%;
   transform: translate(-50%, 0);
 
-  @media screen and (max-width: $sm-up) {
-    font-size: 1em;
-    top: 50%;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   font-size: 1em;
+  //   top: 50%;
+  // }
 }
 
 .tutorial-arrow-sound {
@@ -145,16 +145,16 @@
   left: 8%;
   z-index: 200;
 
-  @media screen and (min-width: $lg-down) {
-    width: 14%;
-    left: 6.5%;
-  }
+  // @media screen and (min-width: $lg-down) {
+  //   width: 14%;
+  //   left: 6.5%;
+  // }
 
-  @media screen and (max-width: $sm-up) {
-    width: 22%;
-    left: 14%;
-    top: 6%;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   width: 22%;
+  //   left: 14%;
+  //   top: 6%;
+  // }
 }
 
 .tutorial-sound-text {
@@ -166,16 +166,16 @@
   top: 30%;
   transform: translate(-50%, 0);
 
-  @media screen and (min-width: $lg-down) {
-    left: 22%;
-  }
+  // @media screen and (min-width: $lg-down) {
+  //   left: 22%;
+  // }
 
-  @media screen and (max-width: $sm-up) {
-    font-size: 1em;
-    width: 25%;
-    top: 46%;
-    left: 36%;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   font-size: 1em;
+  //   width: 25%;
+  //   top: 46%;
+  //   left: 36%;
+  // }
 }
 
 .tutorial-arrow-menu {
@@ -187,14 +187,14 @@
   right: 3%;
   z-index: 200;
 
-  @media screen and (min-width: $lg-down) {
-    width: 20%;
-  }
+  // @media screen and (min-width: $lg-down) {
+  //   width: 20%;
+  // }
 
-  @media screen and (max-width: $sm-up) {
-    top: 16%;
-    right: 5%;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   top: 16%;
+  //   right: 5%;
+  // }
 }
 
 .tutorial-menu-text {
@@ -207,17 +207,17 @@
   top: 48%;
   transform: translate(-50%, 0);
 
-  @media screen and (min-width: $lg-down) {
-    width: 26%;
-    right: -4%;
-    top: 46%;
-  }
+  // @media screen and (min-width: $lg-down) {
+  //   width: 26%;
+  //   right: -4%;
+  //   top: 46%;
+  // }
 
-  @media screen and (max-width: $sm-up) {
-    font-size: 1em;
-    top: 66%;
-    right: 4%;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   font-size: 1em;
+  //   top: 66%;
+  //   right: 4%;
+  // }
 }
 
 .tutorial-arrow-navigator {
@@ -229,14 +229,14 @@
   left: 55%;
   z-index: 200;
 
-  @media screen and (min-width: $lg-down) {
-    width: 16%;
-  }
+  // @media screen and (min-width: $lg-down) {
+  //   width: 16%;
+  // }
 
-  @media screen and (max-width: $sm-up) {
-    width: 24%;
-    top: 6%;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   width: 24%;
+  //   top: 6%;
+  // }
 }
 
 .tutorial-navigator-text {
@@ -249,16 +249,16 @@
   top: 18%;
   transform: translate(-50%, 0);
 
-  @media screen and (min-width: $lg-down) {
-    width: 26%;
-  }
+  // @media screen and (min-width: $lg-down) {
+  //   width: 26%;
+  // }
 
-  @media screen and (max-width: $sm-up) {
-    width: 40%;
-    font-size: 1em;
-    line-height: 1.25;
-    top: 30%;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   width: 40%;
+  //   font-size: 1em;
+  //   line-height: 1.25;
+  //   top: 30%;
+  // }
 }
 
 .tutorial-navigator .comic-navigator {
@@ -271,7 +271,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  @media screen and (max-width: $sm-up) {
-    top: 74%;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   top: 74%;
+  // }
 }

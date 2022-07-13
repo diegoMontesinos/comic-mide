@@ -41,21 +41,21 @@
     height: 32px;
   }
 
-  @media screen and (max-width: $sm-up) {
-    min-width: 40px;
-    min-height: 40px;
+  // @media screen and (max-width: $sm-up) {
+  //   min-width: 40px;
+  //   min-height: 40px;
 
-    > svg {
-      height: 28px;
-    }
-  }
+  //   > svg {
+  //     height: 28px;
+  //   }
+  // }
 
-  @media screen and (max-width: $xs-up) {
-    min-width: 20px;
-    min-height: 20px;
+  // @media screen and (max-width: $xs-up) {
+  //   min-width: 20px;
+  //   min-height: 20px;
 
-    > svg {
-      height: 16px;
-    }
-  }
+  //   > svg {
+  //     height: 16px;
+  //   }
+  // }
 }

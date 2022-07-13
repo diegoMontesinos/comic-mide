@@ -22,13 +22,13 @@
 .comic-content-search {
   margin-bottom: 40px;
 
-  @media screen and (max-width: $sm-up) {
-    margin-bottom: 10px;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   margin-bottom: 10px;
+  // }
 
-  @media screen and (max-width: $xs-up) {
-    margin-bottom: 6px;
-  }
+  // @media screen and (max-width: $xs-up) {
+  //   margin-bottom: 6px;
+  // }
 }
 
 .comic-content-title span {
@@ -36,11 +36,11 @@
   font-size: 3.75em;
   margin: 40px 0;
 
-  @media screen and (max-width: $sm-up) {
-    font-size: 1.875em;
-    margin: 16px 0;
-    text-align: center;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   font-size: 1.875em;
+  //   margin: 16px 0;
+  //   text-align: center;
+  // }
 }
 
 .comic-content-input {
@@ -54,17 +54,17 @@
   padding-left: 22px;
   font-size: 1.5em;
 
-  @media screen and (max-width: $sm-up) {
-    height: 32px;
-    font-size: 1em;
-    margin-bottom: 6px;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   height: 32px;
+  //   font-size: 1em;
+  //   margin-bottom: 6px;
+  // }
 }
 
 .comic-content-search .mide-text {
-  @media screen and (max-width: $sm-up) {
-    font-size: 0.85em;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   font-size: 0.85em;
+  // }
 }
 
 .comic-content-grid {
@@ -75,17 +75,17 @@
   row-gap: 6.5em;
   margin-bottom: 14px;
 
-  @media screen and (max-width: $sm-up) {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 2.75em;
-    row-gap: 2.75em;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   grid-template-columns: repeat(2, 1fr);
+  //   column-gap: 2.75em;
+  //   row-gap: 2.75em;
+  // }
 
-  @media screen and (max-width: $xs-up) {
-    grid-template-columns: 1fr;
-    column-gap: 0;
-    row-gap: 1em;
-  }
+  // @media screen and (max-width: $xs-up) {
+  //   grid-template-columns: 1fr;
+  //   column-gap: 0;
+  //   row-gap: 1em;
+  // }
 
   .comic-grid-card {
     position: relative;

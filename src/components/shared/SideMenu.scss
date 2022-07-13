@@ -29,16 +29,16 @@
   width: 100%;
   padding-top: 14vh;
 
-  @media screen and (max-width: $sm-up) {
-    padding-top: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+  // @media screen and (max-width: $sm-up) {
+  //   padding-top: 0;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  // }
 
-  @media screen and (max-width: $xs-up) {
-    padding-top: 4vh;
-  }
+  // @media screen and (max-width: $xs-up) {
+  //   padding-top: 4vh;
+  // }
 }
 
 .side-menu-close-btn {
@@ -57,14 +57,14 @@
     text-align: center;
     margin: 48px 0;
 
-    @media screen and (max-width: $sm-up) {
-      font-size: 1.85em;
-      margin: 34px 0;
-    }
+    // @media screen and (max-width: $sm-up) {
+    //   font-size: 1.85em;
+    //   margin: 34px 0;
+    // }
 
-    @media screen and (max-width: $xs-up) {
-      font-size: 2.25em;
-      margin: 56px 0;
-    }
+    // @media screen and (max-width: $xs-up) {
+    //   font-size: 2.25em;
+    //   margin: 56px 0;
+    // }
   }
 }
