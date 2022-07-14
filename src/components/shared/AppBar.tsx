@@ -12,11 +12,16 @@ export interface AppBarProps {
   alwaysActive?: boolean;
 }
 
+const transition = {
+  ease: [0.445, 0.05, 0.55, 0.95],
+  duration: 0.3,
+};
+
 const AppBar: React.FC<AppBarProps> = ({
   alwaysActive = false,
 }) => {
   const [hidden, setHidden] = useState(!alwaysActive);
-  const [openMenu, setOpenMenu] = useState(true);
+  const [openMenu, setOpenMenu] = useState(false);
 
   const showAppBar = (): void => {
     if (alwaysActive || !hidden) return;
@@ -46,17 +51,11 @@ const AppBar: React.FC<AppBarProps> = ({
             initial={{ top: -72 }}
             animate={{
               top: 0,
-              transition: {
-                ease: 'easeIn',
-                duration: 0.3,
-              },
+              transition,
             }}
             exit={{
               top: -72,
-              transition: {
-                ease: 'easeIn',
-                duration: 0.3,
-              },
+              transition,
             }}
             onMouseLeave={hideAppBar}
             onPan={(_, { offset }) => {
@@ -71,6 +70,7 @@ const AppBar: React.FC<AppBarProps> = ({
             <IconButton
               icon={Icon.MENU}
               onClick={() => {
+                hideAppBar();
                 setOpenMenu(true);
               }}
             />
