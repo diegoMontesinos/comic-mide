@@ -9,8 +9,9 @@ import FadePage from '../shared/FadePage';
 import TutorialStepper from './TutorialStepper';
 import StepArrows from './StepArrows';
 import StepSound from './StepSound';
-import StepMenu from './StepMenu';
 import StepNavigator from './StepNavigator';
+import StepMenu from './StepMenu';
+import StepFinal from './StepFinal';
 
 import './index.scss';
 
@@ -19,10 +20,11 @@ const STEPS: ReactNode[] = [
   <StepSound />,
   <StepNavigator />,
   <StepMenu />,
+  <StepFinal />,
 ];
 
 const TutorialPage: React.FC = () => {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(0);
 
   const nextStep = (): void => {
     if (step < STEPS.length - 1) {

@@ -28,7 +28,7 @@ const HomePage: React.FC = () => (
         horizontal para una mejor experiencia.
       </span>
     </div>
-    <div className="mide-log-btn">
+    <div className="mide-logo-btn">
       <div className="mide-title-logo">
         <img src={MainTitleLogoImg} alt="Main Title Logo" />
       </div>

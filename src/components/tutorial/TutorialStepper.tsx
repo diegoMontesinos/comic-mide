@@ -12,11 +12,12 @@ const TutorialStepper: React.FC<TutorialStepperProps> = ({
   onChange,
 }) => (
   <div className="tutorial-stepper">
-    {(new Array(maxSteps)).fill(null).map((_, index) => (
+    {new Array(maxSteps).fill(null).map((_, index) => (
       <div
-        // eslint-disable-next-line react/no-array-index-key
         key={`tutorial-step-nav-${index}`}
-        className={`tutorial-step-nav ${index === value ? 'active' : ''}`}
+        className={`tutorial-step-nav ${
+          index === value ? 'active' : ''
+        }`}
         onClick={() => {
           onChange(index);
         }}
