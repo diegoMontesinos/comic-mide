@@ -35,10 +35,10 @@ const pad = (x: number): string => {
 
 const pages: PageData[] = [];
 
-for (let i = 1; i <= 60; i += 1) {
+for (let i = 1; i <= 169; i += 1) {
   pages.push({
     id: `page-${i}`,
-    intro: `ilu_${pad(i)}_intro.json`,
+    animation: `ilu_${pad(i)}.json`,
     thumbnail: thumbnails[i],
     audioPath: i <= 4 ? `ilu_${pad(i)}.wav` : '',
   });

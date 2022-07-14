@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
+
 import { useParams } from 'react-router-dom';
 
 import AppBar from '../shared/AppBar';
+import FadePage from '../shared/FadePage';
 import ComicControls from '../shared/ComicControls';
 import ComicPage, { ComicPageRef } from './ComicPage';
 
@@ -19,7 +21,7 @@ export enum PlayingState {
 
 const Comic: React.FC = () => {
   const [currentPageIndex, setCurrentPageIndex] =
-    useState<number>(-1);
+    useState(-1);
   const [playingState, setPlayingState] =
     useState<PlayingState>(PlayingState.WAITING);
 
@@ -27,30 +29,18 @@ const Comic: React.FC = () => {
 
   const { pageId } = useParams() as { pageId: string };
 
-  const onLoadIntro = (): void => {
-    setPlayingState(PlayingState.PLAYING_INTRO);
-  };
-
-  const onCompleteIntro = (): void => {
-    setPlayingState(PlayingState.READING);
-  };
-
-  const onFadeComplete = (): void => {
-    // pageRef.current?.destroy();
-
+  const onFadePageComplete = (): void => {
     if (
       playingState === PlayingState.FADING_TO_NEXT &&
       currentPageIndex < pages.length - 1
-    ) {
+    )
       setCurrentPageIndex(currentPageIndex + 1);
-    }
 
     if (
       playingState === PlayingState.FADING_TO_PREV &&
       currentPageIndex > 0
-    ) {
+    )
       setCurrentPageIndex(currentPageIndex - 1);
-    }
 
     setPlayingState(PlayingState.WAITING);
   };
@@ -94,16 +84,14 @@ const Comic: React.FC = () => {
     const page = pageRef.current;
     if (!page) return undefined;
 
-    if (playingState === PlayingState.PLAYING_INTRO) {
-      page.playIntro();
-    }
+    if (playingState === PlayingState.PLAYING_INTRO)
+      page.play();
 
     if (
       playingState === PlayingState.FADING_TO_PREV ||
       playingState === PlayingState.FADING_TO_NEXT
-    ) {
+    )
       page.fadeOut();
-    }
 
     return () => {
       page.cancelFade();
@@ -111,17 +99,21 @@ const Comic: React.FC = () => {
   }, [playingState]);
 
   return (
-    <div className="comic">
+    <FadePage className="comic page">
       <AppBar />
 
       <ComicPage
         ref={pageRef}
-        onLoadIntro={onLoadIntro}
-        onCompleteIntro={onCompleteIntro}
+        onLoadAnimation={() => {
+          setPlayingState(PlayingState.PLAYING_INTRO);
+        }}
+        onCompleteAnimation={() => {
+          setPlayingState(PlayingState.READING);
+        }}
         onFadeComplete={
           playingState === PlayingState.FADING_TO_PREV ||
           playingState === PlayingState.FADING_TO_NEXT
-            ? onFadeComplete
+            ? onFadePageComplete
             : undefined
         }
       />
@@ -142,7 +134,7 @@ const Comic: React.FC = () => {
         handleBack={handleBack}
         handleForward={handleForward}
       />
-    </div>
+    </FadePage>
   );
 };
 
