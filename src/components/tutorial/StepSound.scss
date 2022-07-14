@@ -1,0 +1,22 @@
+.step-sound {
+  .tutorial-arrow-sound {
+    width: 20%;
+    height: auto;
+
+    position: absolute;
+    top: 2%;
+    left: 8%;
+    z-index: 200;
+
+    // @media screen and (min-width: $lg-down) {
+    //   width: 14%;
+    //   left: 6.5%;
+    // }
+
+    // @media screen and (max-width: $sm-up) {
+    //   width: 22%;
+    //   left: 14%;
+    //   top: 6%;
+    // }
+  }
+}

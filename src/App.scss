@@ -22,21 +22,3 @@ button {
   pointer-events: none;
   opacity: 0.5;
 }
-
-.router-fade-enter {
-  opacity: 0;
-}
-
-.router-fade-enter-active {
-  opacity: 1;
-  transition: opacity 650ms;
-}
-
-.router-fade-exit {
-  opacity: 1;
-}
-
-.router-fade-exit-active {
-  opacity: 0;
-  transition: opacity 650ms;
-}

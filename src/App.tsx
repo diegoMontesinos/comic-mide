@@ -1,13 +1,11 @@
 import React from 'react';
+
 import {
-  Switch,
+  Routes,
   Route,
   useLocation,
 } from 'react-router-dom';
-import {
-  TransitionGroup,
-  CSSTransition,
-} from 'react-transition-group';
+import { AnimatePresence } from 'framer-motion';
 
 import AboutPage from './components/about';
 import Comic from './components/comic';
@@ -23,34 +21,24 @@ const App: React.FC = () => {
 
   return (
     <div className="app-comic">
-      <TransitionGroup>
-        <CSSTransition
-          key={location.pathname}
-          classNames="router-fade"
-          timeout={300}
-        >
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route exact path="/tutorial">
-              <TutorialPage />
-            </Route>
-            <Route exact path="/comic">
-              <Comic />
-            </Route>
-            <Route path="/comic/:pageId">
-              <Comic />
-            </Route>
-            <Route path="/about">
-              <AboutPage />
-            </Route>
-            <Route path="/content">
-              <ContentPage />
-            </Route>
-          </Switch>
-        </CSSTransition>
-      </TransitionGroup>
+      <AnimatePresence
+        initial={false}
+        exitBeforeEnter={false}
+      >
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<HomePage />} />
+          <Route
+            path="tutorial"
+            element={<TutorialPage />}
+          />
+          <Route path="comic">
+            <Route index element={<Comic />} />
+            <Route path=":pageId" element={<Comic />} />
+          </Route>
+          <Route path="about" element={<AboutPage />} />
+          <Route path="content" element={<ContentPage />} />
+        </Routes>
+      </AnimatePresence>
     </div>
   );
 };

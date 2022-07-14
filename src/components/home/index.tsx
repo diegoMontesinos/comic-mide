@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 import MainTitleImg from '../../assets/main-title.png';
 import MainTitleLogoImg from '../../assets/main-title-logo.svg';
 import ChangePortraitImg from '../../assets/change-portrait.svg';
+import FadePage from '../shared/FadePage';
 
 import './index.scss';
 
 const HomePage: React.FC = () => (
-  <div className="home-page">
+  <FadePage className="home-page page">
     <div className="main-title-img">
       <img src={MainTitleImg} alt="Main title" />
     </div>
@@ -38,7 +39,7 @@ const HomePage: React.FC = () => (
         <span>EMPEZAR</span>
       </Link>
     </div>
-  </div>
+  </FadePage>
 );
 
 export default HomePage;

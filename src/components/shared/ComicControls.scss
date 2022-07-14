@@ -7,28 +7,38 @@
   position: absolute;
   top: 0;
   left: 0;
-}
 
-.go-fwd-btn,
-.go-back-btn {
-  position: absolute;
-  top: 52%;
-  transition: opacity 0.4s ease;
+  .go-fwd-btn,
+  .go-back-btn {
+    position: absolute;
+    top: 52%;
+    transition: opacity 0.4s ease;
 
-  > img {
-    width: 80px;
-    height: auto;
+    > img,
+    > svg {
+      width: 30px;
+      height: auto;
 
-    // @media screen and (max-width: $sm-up) {
-    //   width: 30px;
-    // }
+      @media (min-width: $md-min) {
+        width: 40px;
+      }
+
+      @media (min-width: $lg-min) {
+        width: 80px;
+      }
+    }
   }
-}
 
-.go-fwd-btn {
-  right: 1.05%;
-}
+  .go-fwd-btn {
+    right: 1.05%;
 
-.go-back-btn {
-  left: 1.05%;
+    > img,
+    > svg {
+      transform: scaleX(-1);
+    }
+  }
+
+  .go-back-btn {
+    left: 1.05%;
+  }
 }

@@ -1,8 +1,12 @@
 @import '../../scss/variables.scss';
 
-.tutorial {
-  width: 100vw;
-  height: 100vh;
+.tutorial-page {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   > img {
     max-width: 100%;
@@ -13,265 +17,76 @@
     top: 50%;
     transform: translate(-50%, -50%);
   }
-}
 
-.skip-tutorial {
-  position: absolute;
-  top: 0;
-  left: 0;
-  text-decoration: none;
-  font-size: 1.5em;
-  position: absolute;
-  left: 50%;
-  top: 10%;
-  transform: translate(-50%, 0);
+  .skip-tutorial {
+    font-size: 0.8125rem;
+    line-height: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 8vh;
+    position: relative;
 
-  // @media screen and (max-width: $sm-up) {
-  //   font-size: 1em;
-  //   top: 22%;
-  // }
-}
+    @media (min-width: $sm-min) {
+      font-size: 1.125rem;
+    }
 
-.tutorial-content,
-.tutorial-step-container,
-.tutorial-step {
-  width: 100%;
-  height: 100%;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.tutorial-step-container {
-  background: rgba(0, 0, 0, 0.7);
-}
-
-.tutorial-fade-enter {
-  opacity: 0;
-}
-
-.tutorial-fade-exit {
-  opacity: 1;
-}
-
-.tutorial-fade-enter-active {
-  opacity: 1;
-}
-
-.tutorial-fade-exit-active {
-  opacity: 0;
-}
-
-.tutorial-fade-enter-active,
-.tutorial-fade-exit-active {
-  transition: opacity 500ms;
-}
-
-.tutorial-stepper {
-  width: 150px;
-  height: 40px;
-
-  position: absolute;
-  bottom: 1%;
-  left: 50%;
-  transform: translate(-50%, 0);
-
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-
-  // @media screen and (max-width: $sm-up) {
-  //   width: 100px;
-  // }
-}
-
-.tutorial-step-nav {
-  width: 16px;
-  height: 16px;
-  border-radius: 100%;
-  background: rgba(196, 196, 196, 0.6);
-  transition: all 0.3s ease;
-
-  &.active {
-    transform: scale(1.25);
-    background: #c4c4c4;
+    @media (min-width: $lg-min) {
+      font-size: 2rem;
+    }
   }
 
-  // @media screen and (max-width: $sm-up) {
-  //   width: 8px;
-  //   height: 8px;
-  // }
-}
+  .tutorial-content,
+  .tutorial-step-container,
+  .tutorial-step {
+    width: 100%;
+    height: 100%;
 
-.tutorial-arrow {
-  width: 22%;
-  height: auto;
-
-  position: absolute;
-  top: 50%;
-
-  &.left {
-    left: 9%;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
-  &.right {
-    right: 9%;
+  .tutorial-step-container {
+    background: rgba(0, 0, 0, 0.7);
   }
-}
 
-.tutorial-arrow-text {
-  width: 36%;
-  text-align: center;
-  font-size: 2em;
+  .tutorial-stepper-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 
-  position: absolute;
-  left: 50%;
-  top: 52%;
-  transform: translate(-50%, 0);
+    .tutorial-stepper {
+      width: 100px;
+      height: 40px;
+      margin-bottom: 2vh;
 
-  // @media screen and (max-width: $sm-up) {
-  //   font-size: 1em;
-  //   top: 50%;
-  // }
-}
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
 
-.tutorial-arrow-sound {
-  width: 20%;
-  height: auto;
+      @media (min-width: $sm-min) {
+        width: 150px;
+      }
 
-  position: absolute;
-  top: 2%;
-  left: 8%;
-  z-index: 200;
+      .tutorial-step-nav {
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        background: rgba(196, 196, 196, 0.6);
+        transition: all 0.3s ease;
+        position: relative;
 
-  // @media screen and (min-width: $lg-down) {
-  //   width: 14%;
-  //   left: 6.5%;
-  // }
+        &.active {
+          transform: scale(1.25);
+          background: #c4c4c4;
+        }
 
-  // @media screen and (max-width: $sm-up) {
-  //   width: 22%;
-  //   left: 14%;
-  //   top: 6%;
-  // }
-}
-
-.tutorial-sound-text {
-  text-align: center;
-  font-size: 2em;
-
-  position: absolute;
-  left: 30%;
-  top: 30%;
-  transform: translate(-50%, 0);
-
-  // @media screen and (min-width: $lg-down) {
-  //   left: 22%;
-  // }
-
-  // @media screen and (max-width: $sm-up) {
-  //   font-size: 1em;
-  //   width: 25%;
-  //   top: 46%;
-  //   left: 36%;
-  // }
-}
-
-.tutorial-arrow-menu {
-  width: 30%;
-  height: auto;
-
-  position: absolute;
-  top: 8%;
-  right: 3%;
-  z-index: 200;
-
-  // @media screen and (min-width: $lg-down) {
-  //   width: 20%;
-  // }
-
-  // @media screen and (max-width: $sm-up) {
-  //   top: 16%;
-  //   right: 5%;
-  // }
-}
-
-.tutorial-menu-text {
-  width: 30%;
-  text-align: center;
-  font-size: 2em;
-
-  position: absolute;
-  right: 1%;
-  top: 48%;
-  transform: translate(-50%, 0);
-
-  // @media screen and (min-width: $lg-down) {
-  //   width: 26%;
-  //   right: -4%;
-  //   top: 46%;
-  // }
-
-  // @media screen and (max-width: $sm-up) {
-  //   font-size: 1em;
-  //   top: 66%;
-  //   right: 4%;
-  // }
-}
-
-.tutorial-arrow-navigator {
-  width: 22%;
-  height: auto;
-
-  position: absolute;
-  top: 2%;
-  left: 55%;
-  z-index: 200;
-
-  // @media screen and (min-width: $lg-down) {
-  //   width: 16%;
-  // }
-
-  // @media screen and (max-width: $sm-up) {
-  //   width: 24%;
-  //   top: 6%;
-  // }
-}
-
-.tutorial-navigator-text {
-  width: 34%;
-  text-align: center;
-  font-size: 2em;
-
-  position: absolute;
-  left: 50%;
-  top: 18%;
-  transform: translate(-50%, 0);
-
-  // @media screen and (min-width: $lg-down) {
-  //   width: 26%;
-  // }
-
-  // @media screen and (max-width: $sm-up) {
-  //   width: 40%;
-  //   font-size: 1em;
-  //   line-height: 1.25;
-  //   top: 30%;
-  // }
-}
-
-.tutorial-navigator .comic-navigator {
-  pointer-events: none;
-}
-
-.go-to-comic {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  // @media screen and (max-width: $sm-up) {
-  //   top: 74%;
-  // }
+        @media (min-width: $sm-min) {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
 }

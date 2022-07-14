@@ -1,0 +1,83 @@
+@import '../../scss/variables.scss';
+
+.step-arrows {
+  .tutorial-arrow-text {
+    width: 62%;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 20px;
+
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%, 0);
+
+    @media (max-width: $md-max) and (orientation: landscape) {
+      width: 36%;
+    }
+
+    @media (min-width: $sm-min) {
+      width: 36%;
+      font-size: 1.125rem;
+    }
+
+    @media (min-width: $lg-min) {
+      width: 36%;
+      font-size: 1.875rem;
+      line-height: 38px;
+    }
+  }
+
+  .tutorial-arrow {
+    width: 24%;
+    height: auto;
+
+    position: absolute;
+    top: 50%;
+
+    &.left {
+      left: 12%;
+    }
+
+    &.right {
+      right: 12%;
+    }
+
+    @media (max-width: $md-max) and (orientation: landscape) {
+      top: 46%;
+
+      &.left {
+        left: 8%;
+      }
+
+      &.right {
+        right: 8%;
+      }
+    }
+
+    @media (min-width: $sm-min) {
+      width: 24%;
+
+      &.left {
+        left: 8%;
+      }
+
+      &.right {
+        right: 8%;
+      }
+    }
+
+    path {
+      stroke: white;
+      stroke-width: 2px;
+
+      @media (max-width: $md-max) and (orientation: landscape) {
+        stroke-width: 0;
+      }
+
+      @media (min-width: $lg-min) {
+        stroke-width: 0;
+      }
+    }
+  }
+}

@@ -3,9 +3,16 @@ import React from 'react';
 import TutorialArrowSound from '../../assets/tutorial-arrow-sound.svg';
 
 import AppBar from '../shared/AppBar';
+import FadePage from '../shared/FadePage';
+
+import './StepSound.scss';
 
 const StepSound: React.FC = () => (
-  <div className="tutorial-step">
+  <FadePage
+    className="tutorial-step step-sound"
+    delay={0.15}
+    duration={0.45}
+  >
     <AppBar alwaysActive />
 
     <img
@@ -17,7 +24,7 @@ const StepSound: React.FC = () => (
     <p className="mide-text tutorial-sound-text">
       Activa o desactiva el sonido
     </p>
-  </div>
+  </FadePage>
 );
 
 export default StepSound;
