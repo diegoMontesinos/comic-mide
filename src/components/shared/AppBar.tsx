@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { AnimatePresence, motion } from 'framer-motion';
+
 import SideMenu from './SideMenu';
 
 import IconButton, { Icon } from './IconButton';
@@ -13,54 +15,75 @@ export interface AppBarProps {
 const AppBar: React.FC<AppBarProps> = ({
   alwaysActive = false,
 }) => {
-  const [hidden, setHidden] = useState<boolean>(
-    !alwaysActive
-  );
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [hidden, setHidden] = useState(!alwaysActive);
+  const [openMenu, setOpenMenu] = useState(true);
 
   const showAppBar = (): void => {
-    if (alwaysActive) return;
+    if (alwaysActive || !hidden) return;
     setHidden(false);
   };
 
   const hideAppBar = (): void => {
-    if (alwaysActive) return;
+    if (alwaysActive || hidden) return;
     setHidden(true);
   };
 
   return (
     <div className="app-bar">
-      <div
+      <motion.div
         className="app-bar-reveal-area"
         onMouseOver={showAppBar}
         onFocus={showAppBar}
+        onPan={(_, { offset }) => {
+          if (offset.y > 0) showAppBar();
+        }}
       />
 
-      <div
-        className={`app-bar-content ${
-          hidden ? 'hidden' : 'shown'
-        }`}
-        onMouseLeave={hideAppBar}
-      >
-        <IconButton
-          className="app-bar-sound-btn"
-          icon={Icon.SOUND_ON}
-        />
-        <IconButton icon={Icon.CONTENT} />
-        <IconButton
-          icon={Icon.MENU}
-          onClick={() => {
-            setOpenMenu(true);
-          }}
-        />
+      <AnimatePresence>
+        {!hidden && (
+          <motion.div
+            className="app-bar-content"
+            initial={{ top: -72 }}
+            animate={{
+              top: 0,
+              transition: {
+                ease: 'easeIn',
+                duration: 0.3,
+              },
+            }}
+            exit={{
+              top: -72,
+              transition: {
+                ease: 'easeIn',
+                duration: 0.3,
+              },
+            }}
+            onMouseLeave={hideAppBar}
+            onPan={(_, { offset }) => {
+              if (offset.y < 0) hideAppBar();
+            }}
+          >
+            <IconButton
+              className="app-bar-sound-btn"
+              icon={Icon.SOUND_ON}
+            />
+            <IconButton icon={Icon.CONTENT} />
+            <IconButton
+              icon={Icon.MENU}
+              onClick={() => {
+                setOpenMenu(true);
+              }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-        <SideMenu
-          open={openMenu}
-          onClose={() => {
-            setOpenMenu(false);
-          }}
-        />
-      </div>
+      <SideMenu
+        open={openMenu}
+        onClose={() => {
+          setOpenMenu(false);
+        }}
+      />
     </div>
   );
 };

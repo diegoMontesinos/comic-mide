@@ -24,7 +24,7 @@ const FadePage: React.FC<FadePageProps> = ({
       opacity: 1,
       transition: {
         delay,
-        ease: 'easeIn',
+        ease: [0.445, 0.05, 0.55, 0.95],
         duration,
       },
     }}
@@ -32,7 +32,7 @@ const FadePage: React.FC<FadePageProps> = ({
       opacity: 0,
       transition: {
         delay,
-        ease: 'easeIn',
+        ease: [0.445, 0.05, 0.55, 0.95],
         duration,
       },
     }}
