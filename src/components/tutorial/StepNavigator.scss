@@ -1,0 +1,76 @@
+@import '../../scss/variables.scss';
+
+.tutorial-navigator {
+  .tutorial-arrow-navigator {
+    width: 36%;
+    height: auto;
+
+    position: absolute;
+    top: 2%;
+    left: 54%;
+    z-index: 200;
+
+    @media (min-width: $sm-min) and (orientation: landscape) {
+      width: 30%;
+      top: 3%;
+      left: 54%;
+    }
+
+    @media (min-width: $md-min) and (orientation: landscape) {
+      width: 30%;
+      top: 3%;
+      left: 54%;
+    }
+
+    @media (min-width: $md-min) and (orientation: portrait) {
+      width: 40%;
+      left: 54%;
+      top: 0.5%;
+    }
+
+    @media (min-width: $lg-min) {
+      width: 22%;
+      left: 52%;
+      top: 1%;
+    }
+  }
+
+  .tutorial-navigator-text {
+    width: 60%;
+
+    text-align: center;
+    font-size: 0.8125rem;
+
+    position: absolute;
+    left: 12%;
+    top: 12%;
+
+    @media (min-width: $sm-min) and (orientation: landscape) {
+      width: 40%;
+      left: 30%;
+      top: 34%;
+      font-size: 1rem;
+    }
+
+    @media (min-width: $md-min) and (orientation: landscape) {
+      width: 40%;
+      left: 30%;
+      top: 38%;
+      font-size: 1.125rem;
+    }
+
+    @media (min-width: $md-min) and (orientation: portrait) {
+      width: 40%;
+      left: 36%;
+      top: 18%;
+      font-size: 1.25rem;
+    }
+
+    @media (min-width: $lg-min) {
+      width: 26%;
+      left: 38%;
+      top: 26%;
+      font-size: 2rem;
+    }
+  }
+}

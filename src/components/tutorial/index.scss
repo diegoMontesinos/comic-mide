@@ -26,6 +26,10 @@
     margin-top: 8vh;
     position: relative;
 
+    @media (orientation: landscape) {
+      margin-top: 16vh;
+    }
+
     @media (min-width: $sm-min) {
       font-size: 1.125rem;
     }

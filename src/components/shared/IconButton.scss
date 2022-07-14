@@ -32,30 +32,30 @@
     stroke: #535353;
   }
 
-  min-width: 48px;
-  min-height: 48px;
+  min-width: 20px;
+  min-height: 20px;
   display: flex;
   align-items: center;
 
   > svg {
-    height: 32px;
+    height: 16px;
   }
 
-  // @media screen and (max-width: $sm-up) {
-  //   min-width: 40px;
-  //   min-height: 40px;
+  @media (min-width: $md-min) {
+    min-width: 40px;
+    min-height: 40px;
 
-  //   > svg {
-  //     height: 28px;
-  //   }
-  // }
+    > svg {
+      height: 28px;
+    }
+  }
 
-  // @media screen and (max-width: $xs-up) {
-  //   min-width: 20px;
-  //   min-height: 20px;
+  @media (min-width: $lg-min) {
+    min-width: 48px;
+    min-height: 48px;
 
-  //   > svg {
-  //     height: 16px;
-  //   }
-  // }
+    > svg {
+      height: 32px;
+    }
+  }
 }

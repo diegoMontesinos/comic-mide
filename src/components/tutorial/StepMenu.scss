@@ -1,83 +1,87 @@
 @import '../../scss/variables.scss';
 
-.step-sound {
-  .tutorial-arrow-sound {
-    width: 20%;
+.step-menu {
+  .tutorial-arrow-menu {
+    width: 30%;
     height: auto;
-    position: absolute;
 
-    left: 14%;
-    top: 3.5%;
+    position: absolute;
+    right: 5%;
+    top: 8%;
     z-index: 200;
 
     @media (min-width: $sm-min) and (orientation: landscape) {
       width: 22%;
-      left: 8%;
-      top: 5%;
+      right: 4%;
+      top: 12%;
     }
 
     @media (min-width: $md-min) and (orientation: landscape) {
       width: 20%;
-      left: 8%;
-      top: 3%;
+      right: 5%;
+      top: 12%;
     }
 
     @media (min-width: $md-min) and (orientation: portrait) {
       width: 24%;
-      left: 10%;
-      top: 1%;
+      right: 5%;
+      top: 4%;
     }
 
     @media (min-width: $lg-min) {
       width: 20%;
-      left: 8%;
-      top: 2%;
+      right: 4%;
+      top: 8%;
     }
 
     path {
       stroke: white;
-      stroke-width: 6px;
+      stroke-width: 4px;
 
-      @media (min-width: $sm-min) {
+      @media (min-width: $md-max) {
+        stroke-width: 0;
+      }
+
+      @media (min-width: $lg-min) {
         stroke-width: 0;
       }
     }
   }
 
-  .tutorial-sound-text {
-    width: 25%;
+  .tutorial-menu-text {
+    width: 54%;
 
     text-align: center;
     font-size: 1rem;
 
     position: absolute;
-    left: 33%;
-    top: 13%;
-    transform: translate(-50%, 0);
+    right: 5%;
+    top: 24%;
 
     @media (min-width: $sm-min) and (orientation: landscape) {
-      left: 31%;
+      width: 32%;
+      right: 10%;
       top: 52%;
     }
 
     @media (min-width: $md-min) and (orientation: landscape) {
-      width: 18%;
-      left: 28%;
-      top: 34%;
+      width: 32%;
+      right: 10%;
+      top: 54%;
       font-size: 1.125rem;
     }
 
     @media (min-width: $md-min) and (orientation: portrait) {
-      width: 22%;
-      left: 34%;
-      top: 20%;
-      font-size: 1.125rem;
+      width: 32%;
+      right: 12%;
+      top: 22%;
+      font-size: 1.25rem;
     }
 
     @media (min-width: $lg-min) {
-      width: 24%;
-      left: 28%;
-      top: 42%;
+      width: 22%;
+      right: 12%;
+      top: 48%;
       font-size: 2rem;
     }
   }

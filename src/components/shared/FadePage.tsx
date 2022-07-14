@@ -6,7 +6,7 @@ export interface FadePageProps {
   className?: string;
   delay?: number;
   duration?: number;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const FadePage: React.FC<FadePageProps> = ({
