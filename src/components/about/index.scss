@@ -8,6 +8,12 @@
   flex-direction: column;
   align-items: center;
 
+  .about-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
   .about-title,
   .about-content {
     width: 92%;
