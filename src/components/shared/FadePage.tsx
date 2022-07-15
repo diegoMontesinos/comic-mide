@@ -11,8 +11,8 @@ export interface FadePageProps {
 
 const FadePage: React.FC<FadePageProps> = ({
   className = '',
-  delay = 0.05,
-  duration = 0.55,
+  delay = 0,
+  duration = 0.28,
   children,
 }) => (
   <motion.div

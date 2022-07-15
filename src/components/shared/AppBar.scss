@@ -33,6 +33,16 @@
       #000000 116.67%
     );
   }
+
+  &.always-active {
+    .app-bar-reveal-area {
+      pointer-events: none;
+    }
+
+    .app-bar-content {
+      pointer-events: none;
+    }
+  }
 }
 
 .app-bar,

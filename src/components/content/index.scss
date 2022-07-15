@@ -8,111 +8,127 @@
 
   display: flex;
   flex-direction: column;
-}
+  align-items: center;
 
-.comic-content-title,
-.comic-content-search,
-.comic-content-grid {
-  width: 90%;
-  max-width: 1330px;
-  position: relative;
-  margin: 0 auto;
-}
+  .content-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
 
-.comic-content-search {
-  margin-bottom: 40px;
+  .comic-content-title,
+  .comic-content-search,
+  .comic-content-grid {
+    width: 90%;
+    max-width: 1330px;
+  }
 
-  // @media screen and (max-width: $sm-up) {
-  //   margin-bottom: 10px;
-  // }
+  .comic-content-title span {
+    display: block;
+    font-size: 2rem;
+    text-align: center;
 
-  // @media screen and (max-width: $xs-up) {
-  //   margin-bottom: 6px;
-  // }
-}
+    margin: 40px 0;
 
-.comic-content-title span {
-  display: block;
-  font-size: 3.75em;
-  margin: 40px 0;
-
-  // @media screen and (max-width: $sm-up) {
-  //   font-size: 1.875em;
-  //   margin: 16px 0;
-  //   text-align: center;
-  // }
-}
-
-.comic-content-input {
-  width: 100%;
-  height: 50px;
-  background: #000000;
-  border: 2px solid #727272;
-  box-sizing: border-box;
-  border-radius: 91px;
-  margin-bottom: 20px;
-  padding-left: 22px;
-  font-size: 1.5em;
-
-  // @media screen and (max-width: $sm-up) {
-  //   height: 32px;
-  //   font-size: 1em;
-  //   margin-bottom: 6px;
-  // }
-}
-
-.comic-content-search .mide-text {
-  // @media screen and (max-width: $sm-up) {
-  //   font-size: 0.85em;
-  // }
-}
-
-.comic-content-grid {
-  overflow-y: scroll;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 6.5em;
-  row-gap: 6.5em;
-  margin-bottom: 14px;
-
-  // @media screen and (max-width: $sm-up) {
-  //   grid-template-columns: repeat(2, 1fr);
-  //   column-gap: 2.75em;
-  //   row-gap: 2.75em;
-  // }
-
-  // @media screen and (max-width: $xs-up) {
-  //   grid-template-columns: 1fr;
-  //   column-gap: 0;
-  //   row-gap: 1em;
-  // }
-
-  .comic-grid-card {
-    position: relative;
-
-    > img {
-      width: 100%;
-      height: auto;
+    @media (min-width: $sm-min) and (orientation: landscape) {
+      margin: 18px 0;
     }
 
-    .comic-grid-card-index {
+    @media (min-width: $lg-min) {
+      margin-top: 56px;
+      margin-bottom: 62px;
+      font-size: 3.75em;
+      text-align: initial;
+    }
+  }
+
+  .comic-content-search {
+    margin-bottom: 26px;
+
+    .comic-content-input {
       width: 100%;
-      height: 48px;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.6) 0%,
-        #000000 100%
-      );
+      height: 32px;
+      background: #000000;
+      border: 2px solid #727272;
+      box-sizing: border-box;
+      border-radius: 90px;
+      margin-bottom: 6px;
+      padding-left: 22px;
+      font-size: 1rem;
 
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      display: flex;
-      align-items: center;
+      @media (min-width: $md-min) {
+        height: 50px;
+        margin-bottom: 16px;
+      }
+    }
 
-      span {
-        font-size: 1.875em;
-        margin-left: 8px;
+    .mide-text {
+      font-size: 0.8125rem;
+      color: #d5d5d5;
+
+      @media (min-width: $md-min) {
+        font-size: 1rem;
+      }
+
+      @media (min-width: $lg-min) {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .comic-content-grid {
+    overflow-y: scroll;
+    display: grid;
+    margin-bottom: 14px;
+
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 1rem;
+
+    @media (min-width: $sm-min) and (orientation: landscape) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 2.75rem;
+      row-gap: 2.75rem;
+    }
+
+    @media (min-width: $md-min) {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 7vw;
+      row-gap: 7vw;
+    }
+
+    .comic-grid-card {
+      position: relative;
+
+      > img {
+        width: 100%;
+        height: auto;
+      }
+
+      .comic-grid-card-index {
+        width: 100%;
+        height: 44px;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.6) 0%,
+          #000000 100%
+        );
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        display: flex;
+        align-items: center;
+
+        @media (min-width: $md-min) {
+          height: 48px;
+        }
+
+        span {
+          font-size: 1.5rem;
+          margin-left: 8px;
+        }
       }
     }
   }

@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+
+import { Link, useNavigate } from 'react-router-dom';
+
+import FadePage from '../shared/FadePage';
+import IconButton, { Icon } from '../shared/IconButton';
 
 import { PageData } from '../../interfaces/comic';
 
@@ -8,10 +12,12 @@ import pages from '../../pageData';
 import './index.scss';
 
 const ContentPage: React.FC = () => {
-  const [search, setSearch] = useState<string>('');
+  const [search, setSearch] = useState('');
   const [filtered, setFiltered] = useState<PageData[]>([
     ...pages,
   ]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const num = parseInt(search, 10);
@@ -27,10 +33,19 @@ const ContentPage: React.FC = () => {
   }, [search]);
 
   return (
-    <div className="comic-content">
+    <FadePage className="comic-content">
+      <IconButton
+        className="content-close-btn"
+        icon={Icon.CLOSE}
+        onClick={() => {
+          navigate(-1);
+        }}
+      />
+
       <div className="comic-content-title">
         <span className="mide-text">CONTENIDO</span>
       </div>
+
       <div className="comic-content-search">
         <input
           className="comic-content-input mide-text"
@@ -44,10 +59,10 @@ const ContentPage: React.FC = () => {
           Escribe el número de página
         </span>
       </div>
+
       <div className="comic-content-grid">
         {filtered.map((page, idx) => (
           <Link
-            // eslint-disable-next-line react/no-array-index-key
             key={`comic-card-${idx}`}
             className="comic-grid-card"
             to={`/comic/${page.id}`}
@@ -64,7 +79,7 @@ const ContentPage: React.FC = () => {
           </Link>
         ))}
       </div>
-    </div>
+    </FadePage>
   );
 };
 

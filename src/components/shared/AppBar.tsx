@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 import SideMenu from './SideMenu';
 
@@ -34,7 +35,11 @@ const AppBar: React.FC<AppBarProps> = ({
   };
 
   return (
-    <div className="app-bar">
+    <div
+      className={`app-bar${
+        alwaysActive ? ' always-active' : ''
+      }`}
+    >
       <motion.div
         className="app-bar-reveal-area"
         onMouseOver={showAppBar}
@@ -66,7 +71,9 @@ const AppBar: React.FC<AppBarProps> = ({
               className="app-bar-sound-btn"
               icon={Icon.SOUND_ON}
             />
-            <IconButton icon={Icon.CONTENT} />
+            <Link to="/content">
+              <IconButton icon={Icon.CONTENT} />
+            </Link>
             <IconButton
               icon={Icon.MENU}
               onClick={() => {
