@@ -41,13 +41,22 @@
     margin-bottom: 0;
     text-align: center;
 
-    display: flex;
-    flex-direction: column;
+    .about-content-col {
+      @media (min-width: $sm-min) and (orientation: landscape) {
+        column-count: 3;
+        margin: 0 auto;
+      }
 
-    @media (min-width: $sm-min) and (orientation: landscape) {
-      display: grid;
-      margin-bottom: 4px;
-      grid-template-columns: repeat(3, 1fr);
+      .about-content-grid {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        @media (min-width: $sm-min) and (orientation: landscape) {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+      }
     }
 
     .about-content-item {

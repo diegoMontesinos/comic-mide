@@ -101,135 +101,139 @@ const AboutPage: React.FC = () => (
     <h3 className="about-title mide-text">CRÉDITOS</h3>
 
     <div className="about-content">
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Lorem ipsum dolor sit amet1
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Consectetur adipiscing elit
-        </div>
-      </div>
+      <div className="about-content-col">
+        <div className="about-content-grid">
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Lorem ipsum dolor sit amet 1
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Consectetur adipiscing elit
+            </div>
+          </div>
 
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Curabitur ornare, nisi ac mollis tincidunt2
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Tellus arcu pulvinar lacus, a placerat
-        </div>
-      </div>
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Curabitur ornare, nisi ac mollis tincidunt 2
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Tellus arcu pulvinar lacus, a placerat
+            </div>
+          </div>
 
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Ante tortor nec risus
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Donec euismod Urna vel est dictum placerat vel
-        </div>
-      </div>
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Ante tortor nec risus 3
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Donec euismod Urna vel est dictum placerat vel
+            </div>
+          </div>
 
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Lorem ipsum dolor sit amet
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Consectetur adipiscing elit
-        </div>
-      </div>
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Lorem ipsum dolor sit amet 4
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Consectetur adipiscing elit
+            </div>
+          </div>
 
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Curabitur ornare, nisi ac mollis tincidunt
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Tellus arcu pulvinar lacus, a placerat
-        </div>
-      </div>
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Curabitur ornare, nisi ac mollis tincidunt
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Tellus arcu pulvinar lacus, a placerat
+            </div>
+          </div>
 
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Ante tortor nec risus
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Donec euismod Urna vel est dictum placerat vel
-        </div>
-      </div>
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Ante tortor nec risus
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Donec euismod Urna vel est dictum placerat vel
+            </div>
+          </div>
 
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Lorem ipsum dolor sit amet
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Consectetur adipiscing elit
-        </div>
-      </div>
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Lorem ipsum dolor sit amet
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Consectetur adipiscing elit
+            </div>
+          </div>
 
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Curabitur ornare, nisi ac mollis tincidunt
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Tellus arcu pulvinar lacus, a placerat
-        </div>
-      </div>
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Curabitur ornare, nisi ac mollis tincidunt
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Tellus arcu pulvinar lacus, a placerat
+            </div>
+          </div>
 
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Ante tortor nec risus
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Donec euismod Urna vel est dictum placerat vel
-        </div>
-      </div>
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Ante tortor nec risus
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Donec euismod Urna vel est dictum placerat vel
+            </div>
+          </div>
 
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Lorem ipsum dolor sit amet
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Consectetur adipiscing elit
-        </div>
-      </div>
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Lorem ipsum dolor sit amet
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Consectetur adipiscing elit
+            </div>
+          </div>
 
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Lorem ipsum dolor sit amet
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Consectetur adipiscing elit
-        </div>
-      </div>
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Lorem ipsum dolor sit amet
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Consectetur adipiscing elit
+            </div>
+          </div>
 
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Lorem ipsum dolor sit amet
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Consectetur adipiscing elit
-        </div>
-      </div>
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Lorem ipsum dolor sit amet
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Consectetur adipiscing elit
-        </div>
-      </div>
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Lorem ipsum dolor sit amet
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Consectetur adipiscing elit
-        </div>
-      </div>
-      <div className="about-content-item">
-        <div className="about-content-title mide-text">
-          Lorem ipsum dolor sit amet
-        </div>
-        <div className="about-content-subtitle mide-text">
-          Consectetur adipiscing elit
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Lorem ipsum dolor sit amet
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Consectetur adipiscing elit
+            </div>
+          </div>
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Lorem ipsum dolor sit amet
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Consectetur adipiscing elit
+            </div>
+          </div>
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Lorem ipsum dolor sit amet
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Consectetur adipiscing elit
+            </div>
+          </div>
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Lorem ipsum dolor sit amet
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Consectetur adipiscing elit
+            </div>
+          </div>
         </div>
       </div>
     </div>
