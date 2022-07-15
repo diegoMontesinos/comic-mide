@@ -39,23 +39,24 @@
 
     margin-top: 8px;
     margin-bottom: 0;
-    text-align: center;
+
+    @media (min-width: $sm-min) and (orientation: landscape) {
+      display: flex;
+    }
 
     .about-content-col {
+      flex: 1;
+
       @media (min-width: $sm-min) and (orientation: landscape) {
-        column-count: 3;
-        margin: 0 auto;
+        padding: 0 6px;
       }
 
-      .about-content-grid {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
+      @media (min-width: $md-min) and (orientation: landscape) {
+        padding: 0 10px;
+      }
 
-        @media (min-width: $sm-min) and (orientation: landscape) {
-          display: grid;
-          grid-template-columns: 1fr;
-        }
+      @media (min-width: $lg-min) {
+        padding: 0 14px;
       }
     }
 
@@ -63,10 +64,33 @@
       margin: 0;
       margin-bottom: 18px;
 
+      @media (min-width: $lg-min) {
+        margin-bottom: 30px;
+      }
+
       .about-content-title,
       .about-content-subtitle {
-        font-size: 0.75rem;
-        line-height: 0.875rem;
+        font-size: 0.8125rem;
+        text-align: center;
+
+        @media (min-width: $sm-min) and (orientation: landscape) {
+          font-size: 0.7125rem;
+          text-align: left;
+        }
+
+        @media (min-width: $md-min) and (orientation: portrait) {
+          font-size: 1.25rem;
+        }
+
+        @media (min-width: $md-min) and (orientation: landscape) {
+          font-size: 0.8125rem;
+          text-align: left;
+        }
+
+        @media (min-width: $lg-min) {
+          font-size: 1.25rem;
+          text-align: left;
+        }
       }
 
       .about-content-title {
@@ -82,6 +106,10 @@
   .about-content-logo {
     width: 100%;
     height: 15.625vh;
+
+    @media (min-width: $md-min) and (orientation: landscape) {
+      height: 24vh;
+    }
 
     display: flex;
     align-items: center;
