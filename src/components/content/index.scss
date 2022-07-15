@@ -78,9 +78,9 @@
 
   .comic-content-grid {
     overflow-y: scroll;
-    display: grid;
     margin-bottom: 14px;
 
+    display: grid;
     grid-template-columns: 1fr;
     column-gap: 0;
     row-gap: 1rem;
