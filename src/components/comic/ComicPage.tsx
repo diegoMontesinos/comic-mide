@@ -3,7 +3,9 @@ import React, {
   useRef,
   useState,
 } from 'react';
+
 import lottie, { AnimationItem } from 'lottie-web';
+import { Howl, Howler } from 'howler';
 
 import { PageData } from '../../interfaces/comic';
 
@@ -36,6 +38,7 @@ const ComicPage = React.forwardRef<
 
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<AnimationItem | null>(null);
+  const soundRef = useRef<Howl | null>(null);
 
   const loadAnimation = (
     src: string,
@@ -49,6 +52,13 @@ const ComicPage = React.forwardRef<
       path: `${process.env.PUBLIC_URL}/${ANIMATION_BASEPATH}${src}`,
     });
 
+  const loadSound = (src: string): Howl =>
+    new Howl({
+      src: [src],
+      autoplay: false,
+      loop: false,
+    });
+
   const destroyAnimations = (): void => {
     if (!containerRef.current || !animationRef.current) {
       return;
@@ -56,6 +66,12 @@ const ComicPage = React.forwardRef<
 
     containerRef.current.style.display = 'initial';
     animationRef.current.destroy();
+
+    if (soundRef.current) {
+      soundRef.current.pause();
+      soundRef.current.unload();
+      soundRef.current = null;
+    }
   };
 
   useImperativeHandle(ref, () => ({
@@ -81,6 +97,14 @@ const ComicPage = React.forwardRef<
         onCompleteAnimation
       );
       animationRef.current = animation;
+
+      // Load sound
+      if (page.audio) {
+        const sound = loadSound(page.audio);
+        soundRef.current = sound;
+      } else {
+        soundRef.current = null;
+      }
     },
     play() {
       if (!containerRef.current || !animationRef.current) {
@@ -89,6 +113,10 @@ const ComicPage = React.forwardRef<
 
       containerRef.current.style.display = 'initial';
       animationRef.current.play();
+
+      if (soundRef.current) {
+        soundRef.current.play();
+      }
     },
     fadeOut() {
       setIsFading(true);

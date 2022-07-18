@@ -1,4 +1,4 @@
-import { createContext, useRef, useState } from 'react';
+import { createContext } from 'react';
 
 export type SoundManager = {
   muteApp: (mute: boolean) => void;
@@ -15,8 +15,6 @@ const defaultSoundManager: SoundManager = {
 export const SoundContext = createContext<SoundManager>(
   defaultSoundManager
 );
-
-// const useCreateSoundManager = (): SoundManager => {};
 
 const SoundManager: React.FC = () => {
   return <></>;
