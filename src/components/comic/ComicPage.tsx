@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 
 import lottie, { AnimationItem } from 'lottie-web';
-import { Howl, Howler } from 'howler';
+import { Howl } from 'howler';
 
 import { PageData } from '../../interfaces/comic';
 
