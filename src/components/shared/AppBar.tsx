@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-import { SoundContext } from '../sound/SoundManager';
 import Glow from './Glow';
 import IconButton, { Icon } from './IconButton';
 import SideMenu from './SideMenu';
@@ -32,8 +31,18 @@ const AppBar: React.FC<AppBarProps> = ({
 }) => {
   const [hidden, setHidden] = useState(!alwaysActive);
   const [openMenu, setOpenMenu] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
 
-  const soundManager = useContext(SoundContext);
+  const toggleMuted = () => {
+    if (!isMuted) {
+      Howler.volume(0.01);
+    } else {
+      Howler.volume(0.85);
+    }
+
+    Howler.mute(!isMuted);
+    setIsMuted(!isMuted);
+  };
 
   const showAppBar = (): void => {
     if (alwaysActive || !hidden) return;
@@ -82,15 +91,9 @@ const AppBar: React.FC<AppBarProps> = ({
               {glowItem === AppBarItem.SOUND && <Glow />}
 
               <IconButton
-                onClick={() => {
-                  soundManager.muteApp(
-                    !soundManager.isMuted
-                  );
-                }}
+                onClick={toggleMuted}
                 icon={
-                  soundManager.isMuted
-                    ? Icon.SOUND_OFF
-                    : Icon.SOUND_ON
+                  isMuted ? Icon.SOUND_OFF : Icon.SOUND_ON
                 }
               />
             </div>
