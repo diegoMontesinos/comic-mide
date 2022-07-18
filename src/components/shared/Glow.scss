@@ -1,18 +1,27 @@
+@import '../../scss/variables.scss';
+
 @keyframes glow {
   0% {
-    opacity: 0.9;
+    opacity: 1;
   }
   50% {
-    opacity: 0.45;
+    opacity: 0.5;
   }
   100% {
-    opacity: 0.9;
+    opacity: 1;
   }
 }
 
 .glow-circle {
   width: 40px;
   height: auto;
+
+  @media (min-width: $md-min) {
+    width: 60px;
+  }
+  @media (min-width: $lg-min) {
+    width: 70px;
+  }
 
   animation: glow 1s ease infinite;
 }
