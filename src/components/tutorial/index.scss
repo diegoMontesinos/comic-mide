@@ -54,6 +54,34 @@
     left: 0;
   }
 
+  .tutorial-step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .tutorial-text {
+      width: 62%;
+      text-align: center;
+      font-size: 1rem;
+      line-height: 20px;
+
+      @media (max-width: $md-max) and (orientation: landscape) {
+        width: 36%;
+      }
+
+      @media (min-width: $sm-min) {
+        width: 36%;
+        font-size: 1.125rem;
+      }
+
+      @media (min-width: $lg-min) {
+        width: 36%;
+        font-size: 1.875rem;
+        line-height: 38px;
+      }
+    }
+  }
+
   .tutorial-step-container {
     background: rgba(0, 0, 0, 0.7);
   }

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Glow from './Glow';
+
 import './ComicControls.scss';
 
 export interface ComicControlProps {
@@ -7,98 +9,32 @@ export interface ComicControlProps {
   showForward?: boolean;
   classBack?: string;
   classForward?: string;
-  white?: boolean;
+  withGlow?: boolean;
   handleForward?: () => void;
   handleBack?: () => void;
 }
 
-const ArrowDark: React.FC = () => (
+const Arrow: React.FC = () => (
   <svg
-    width="80"
-    height="80"
-    viewBox="0 0 80 80"
+    className="control-arrow-icon"
+    width="31"
+    height="54"
+    viewBox="0 0 31 54"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle
-      cx="40"
-      cy="40"
-      r="40"
-      fill="url(#paint0_radial)"
-      fillOpacity="0.67"
-    />
     <path
-      d="M49 17L26 40L49 63"
+      d="M4 50L27 27L4 4"
       stroke="#E5E5E5"
       strokeWidth="8"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <defs>
-      <radialGradient
-        id="paint0_radial"
-        cx="0"
-        cy="0"
-        r="1"
-        gradientUnits="userSpaceOnUse"
-        gradientTransform="translate(40 40) rotate(90) scale(40)"
-      >
-        <stop stopColor="#0B0B0B" />
-        <stop
-          offset="1"
-          stopColor="#0B0B0B"
-          stopOpacity="0.4"
-        />
-      </radialGradient>
-    </defs>
-  </svg>
-);
-
-const ArrowWhite: React.FC = () => (
-  <svg
-    width="80"
-    height="80"
-    viewBox="0 0 80 80"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <ellipse
-      cx="40"
-      cy="40"
-      rx="40"
-      ry="40"
-      fill="url(#paint0_radial_328_768)"
-      fillOpacity="0.67"
-    />
-    <path
-      d="M49 17L26 40L49 63"
-      stroke="#E5E5E5"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <defs>
-      <radialGradient
-        id="paint0_radial_328_768"
-        cx="0"
-        cy="0"
-        r="1"
-        gradientUnits="userSpaceOnUse"
-        gradientTransform="translate(40 40) rotate(90) scale(40)"
-      >
-        <stop stopColor="white" />
-        <stop
-          offset="1"
-          stopColor="white"
-          stopOpacity="0.4"
-        />
-      </radialGradient>
-    </defs>
   </svg>
 );
 
 const ComicControls: React.FC<ComicControlProps> = ({
-  white = false,
+  withGlow = false,
   showBack = true,
   showForward = true,
   classBack = '',
@@ -113,7 +49,8 @@ const ComicControls: React.FC<ComicControlProps> = ({
         type="button"
         onClick={handleBack}
       >
-        {white ? <ArrowWhite /> : <ArrowDark />}
+        {withGlow && <Glow />}
+        <Arrow />
       </button>
     )}
 
@@ -123,7 +60,8 @@ const ComicControls: React.FC<ComicControlProps> = ({
         type="button"
         onClick={handleForward}
       >
-        {white ? <ArrowWhite /> : <ArrowDark />}
+        {withGlow && <Glow />}
+        <Arrow />
       </button>
     )}
   </div>

@@ -3,14 +3,21 @@ import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-import SideMenu from './SideMenu';
-
+import Glow from './Glow';
 import IconButton, { Icon } from './IconButton';
+import SideMenu from './SideMenu';
 
 import './AppBar.scss';
 
+export enum AppBarItem {
+  SOUND,
+  CONTENT,
+  MENU,
+}
+
 export interface AppBarProps {
   alwaysActive?: boolean;
+  glowItem?: AppBarItem;
 }
 
 const transition = {
@@ -20,6 +27,7 @@ const transition = {
 
 const AppBar: React.FC<AppBarProps> = ({
   alwaysActive = false,
+  glowItem,
 }) => {
   const [hidden, setHidden] = useState(!alwaysActive);
   const [openMenu, setOpenMenu] = useState(false);
@@ -67,20 +75,29 @@ const AppBar: React.FC<AppBarProps> = ({
               if (offset.y < 0) hideAppBar();
             }}
           >
-            <IconButton
-              className="app-bar-sound-btn"
-              icon={Icon.SOUND_ON}
-            />
-            <Link to="/content">
+            <div className="app-bar-sound-btn">
+              {glowItem === AppBarItem.SOUND && <Glow />}
+              <IconButton icon={Icon.SOUND_ON} />
+            </div>
+
+            <Link
+              className="app-bar-content-btn"
+              to="/content"
+            >
+              {glowItem === AppBarItem.CONTENT && <Glow />}
               <IconButton icon={Icon.CONTENT} />
             </Link>
-            <IconButton
-              icon={Icon.MENU}
-              onClick={() => {
-                hideAppBar();
-                setOpenMenu(true);
-              }}
-            />
+
+            <div className="app-bar-menu-btn">
+              {glowItem === AppBarItem.MENU && <Glow />}
+              <IconButton
+                icon={Icon.MENU}
+                onClick={() => {
+                  hideAppBar();
+                  setOpenMenu(true);
+                }}
+              />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

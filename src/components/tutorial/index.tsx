@@ -24,7 +24,7 @@ const STEPS: ReactNode[] = [
 ];
 
 const TutorialPage: React.FC = () => {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(3);
 
   const nextStep = (): void => {
     if (step < STEPS.length - 1) {

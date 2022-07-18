@@ -52,4 +52,17 @@
   @media (min-width: $lg-min) {
     height: 72px;
   }
+
+  .app-bar-sound-btn,
+  .app-bar-content-btn,
+  .app-bar-menu-btn {
+    position: relative;
+
+    .glow-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
 }

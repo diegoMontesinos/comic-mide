@@ -11,34 +11,43 @@
   .go-fwd-btn,
   .go-back-btn {
     position: absolute;
-    top: 52%;
+    top: 50%;
     transition: opacity 0.4s ease;
 
-    > img,
-    > svg {
-      width: 30px;
-      height: auto;
+    width: 12px;
+    height: auto;
 
-      @media (min-width: $md-min) {
-        width: 40px;
-      }
+    @media (min-width: $md-min) {
+      width: 18px;
+    }
 
-      @media (min-width: $lg-min) {
-        width: 80px;
-      }
+    @media (min-width: $lg-min) {
+      width: 28px;
+    }
+
+    display: flex;
+
+    .glow-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-52%, -50%);
+    }
+
+    .control-arrow-icon {
+      width: 100%;
     }
   }
 
   .go-fwd-btn {
-    right: 1.05%;
-
-    > img,
-    > svg {
-      transform: scaleX(-1);
-    }
+    right: 4%;
   }
 
   .go-back-btn {
-    left: 1.05%;
+    left: 4%;
+
+    .control-arrow-icon {
+      transform: scaleX(-1);
+    }
   }
 }
