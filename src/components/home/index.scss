@@ -3,102 +3,173 @@
 .home-page {
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    180deg,
-    #000000 0%,
-    #506036 100%
-  );
+  background: black;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  .main-title-img {
-    width: 92%;
-    max-width: 340px;
-    margin-top: 12vh;
-
-    @media (max-width: $sm-max) and (orientation: landscape) {
-      margin-top: 6vh;
-    }
-
-    @media (min-width: $lg-min) {
-      max-width: 1058px;
-      margin-top: 14vh;
-    }
-
-    > img {
-      width: 100%;
-      height: auto;
-    }
-  }
-
-  .welcome-text {
-    width: 74%;
-
-    font-size: 1rem;
-    line-height: 23px;
-    text-align: center;
-
-    margin-top: 6vh;
-
-    @media (max-width: $sm-max) and (orientation: landscape) {
-      margin-top: 4vh;
-      max-width: 268px;
-    }
-
-    @media (min-width: $lg-min) {
-      max-width: 514px;
-      line-height: 38px;
-      font-size: 1.875rem;
-      margin-top: 10vh;
-    }
-  }
-
-  .welcome-portrait-img {
-    display: none;
-    width: 14%;
-    margin-top: 6vh;
-    margin-bottom: 4vh;
-
-    > img {
-      width: 100%;
-      height: auto;
-    }
-
-    @media (max-width: $sm-max) and (orientation: portrait) {
-      display: initial;
-    }
-  }
-
-  .welcome-portrait-text {
-    display: none;
-    width: 82%;
-    text-align: center;
-
-    font-size: 0.8125rem;
-    line-height: 18px;
-
-    @media (max-width: $sm-max) and (orientation: portrait) {
-      display: initial;
-    }
-  }
-
-  .mide-logo-btn {
+  .home-animation,
+  .home-fade-bg {
     width: 100%;
+    height: 100%;
 
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .home-animation {
+    z-index: 1;
+  }
+
+  .home-fade-bg {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+    z-index: 2;
+  }
+
+  .home-content {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    > * {
+      z-index: 3;
+    }
+
+    @media (min-width: $sm-min) and (orientation: landscape) {
+      width: 80%;
+      margin: 0 auto;
+
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    @media (min-width: $md-min) and (orientation: landscape) {
+      width: 66%;
+    }
+
+    @media (min-width: $lg-min) {
+      width: 100%;
+      margin: 0;
+
+      flex-direction: column;
+      justify-content: initial;
+      align-items: center;
+    }
+  }
+
+  .home-title-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: $sm-min) and (orientation: landscape) {
+      width: 50%;
+      align-items: initial;
+    }
+
+    @media (min-width: $lg-min) {
+      width: 100%;
+      align-items: center;
+      flex: 1;
+      flex-direction: column-reverse;
+    }
+
+    .mide-title-logo {
+      width: 18%;
+      margin-top: 14vh;
+
+      > img {
+        width: 100%;
+        height: auto;
+      }
+
+      @media (min-width: $sm-min) and (orientation: landscape) {
+        width: 30%;
+        flex: 1;
+
+        padding-left: 2vw;
+        margin-bottom: 2.5vh;
+
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 0;
+      }
+
+      @media (min-width: $md-min) and (orientation: portrait) {
+        width: 22%;
+        margin-top: 12vh;
+      }
+
+      @media (min-width: $lg-min) {
+        width: 8%;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 2.5vh;
+        flex: initial;
+      }
+    }
+
+    .welcome-text {
+      width: 56%;
+      position: relative;
+
+      font-size: 0.875rem;
+      text-align: center;
+
+      margin-top: 2.5vh;
+
+      @media (min-width: $sm-min) and (orientation: landscape) {
+        text-align: initial;
+        width: 80%;
+        margin-top: 0vh;
+        margin-bottom: 8vh;
+        padding-left: 2vw;
+      }
+
+      @media (min-width: $md-min) and (orientation: portrait) {
+        width: 50%;
+        font-size: 1.5rem;
+        margin-top: 2vh;
+      }
+
+      @media (min-width: $lg-min) {
+        width: 24%;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        font-size: 1.5rem;
+        margin-bottom: 2.5vh;
+      }
+    }
+  }
+
+  .home-btn-container {
+    width: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
 
-    @media (min-width: $sm-min) {
+    @media (min-width: $sm-min) and (orientation: landscape) {
+      width: 50%;
+      flex: initial;
+    }
+
+    @media (min-width: $lg-min) {
+      width: 100%;
+      flex: initial;
       flex-direction: column;
     }
 
-    .main-title-btn {
-      width: 84%;
-      max-width: 280px;
-      height: 64px;
+    .home-btn {
+      width: 52%;
+      max-width: 186px;
+      height: 38px;
 
       display: flex;
       align-items: center;
@@ -108,32 +179,28 @@
       box-sizing: border-box;
       border-radius: 29px;
 
-      font-size: 1.4375em;
+      font-size: 1rem;
       text-decoration: none;
 
-      margin-top: 4vh;
+      margin-bottom: 18vh;
 
-      @media (min-width: $lg-min) {
-        max-width: 212px;
-        height: 66px;
-        margin-top: 8vh;
-      }
-    }
-
-    .mide-title-logo {
-      width: 28%;
-
-      max-width: 100px;
-      margin-top: 4vh;
-
-      @media (min-width: $lg-min) {
-        max-width: 160px;
-        margin-top: 6vh;
+      @media (min-width: $sm-min) and (orientation: landscape) {
+        width: 74%;
+        margin-bottom: 8vh;
       }
 
-      > img {
-        width: 100%;
-        height: auto;
+      @media (min-width: $md-min) and (orientation: portrait) {
+        max-width: 308px;
+        height: 64px;
+        font-size: 1.4375rem;
+        margin-bottom: 10vh;
+      }
+
+      @media (min-width: $lg-min) {
+        max-width: 308px;
+        height: 64px;
+        font-size: 1.4375rem;
+        margin-bottom: 6vh;
       }
     }
   }

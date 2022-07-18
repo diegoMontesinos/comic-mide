@@ -1,45 +1,66 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+
+import lottie, { AnimationItem } from 'lottie-web';
 
 import { Link } from 'react-router-dom';
 
-import MainTitleImg from '../../assets/main-title.png';
 import MainTitleLogoImg from '../../assets/main-title-logo.svg';
-import ChangePortraitImg from '../../assets/change-portrait.svg';
 import FadePage from '../shared/FadePage';
 
 import './index.scss';
 
-const HomePage: React.FC = () => (
-  <FadePage className="home-page page">
-    <div className="main-title-img">
-      <img src={MainTitleImg} alt="Main title" />
-    </div>
-    <div className="mide-text welcome-text">
-      <span>
-        Bienvenido al primer Comic Digital del MIDE
-      </span>
-    </div>
-    <div className="welcome-portrait-img">
-      <img src={ChangePortraitImg} alt="Change Portrait" />
-    </div>
-    <div className="mide-text welcome-portrait-text">
-      <span>
-        Te recomendamos girar el teléfono de forma
-        horizontal para una mejor experiencia.
-      </span>
-    </div>
-    <div className="mide-logo-btn">
-      <div className="mide-title-logo">
-        <img src={MainTitleLogoImg} alt="Main Title Logo" />
+const ANIMATION_PATH = 'animations/ilu_00_cover.json';
+
+const HomePage: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<AnimationItem | null>(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el || animationRef.current) return;
+
+    const animation = lottie.loadAnimation({
+      container: el,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: `${process.env.PUBLIC_URL}/${ANIMATION_PATH}`,
+    });
+
+    animationRef.current = animation;
+  }, []);
+
+  return (
+    <FadePage className="home-page page">
+      <div className="home-animation" ref={containerRef} />
+      <div className="home-fade-bg" />
+
+      <div className="home-content">
+        <div className="home-title-text">
+          <div className="mide-title-logo">
+            <img
+              src={MainTitleLogoImg}
+              alt="Main Title Logo"
+            />
+          </div>
+          <div className="mide-text welcome-text">
+            <span>
+              Bienvenido al primer cómic digital del MIDE
+            </span>
+          </div>
+        </div>
+
+        <div className="home-btn-container">
+          <Link
+            to="/tutorial"
+            className="mide-text primary-btn home-btn"
+          >
+            <span>EMPEZAR</span>
+          </Link>
+        </div>
       </div>
-      <Link
-        to="/tutorial"
-        className="mide-text primary-btn main-title-btn"
-      >
-        <span>EMPEZAR</span>
-      </Link>
-    </div>
-  </FadePage>
-);
+    </FadePage>
+  );
+};
 
 export default HomePage;
