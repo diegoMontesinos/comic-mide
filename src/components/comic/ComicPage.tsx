@@ -1,4 +1,5 @@
 import React, {
+  useEffect,
   useImperativeHandle,
   useRef,
   useState,
@@ -99,7 +100,6 @@ const ComicPage = React.forwardRef<
       animation.addEventListener('data_failed', () => {
         console.error('Animation not loaded');
       });
-
       animationRef.current = animation;
 
       // Load sound
@@ -129,6 +129,21 @@ const ComicPage = React.forwardRef<
       setIsFading(false);
     },
   }));
+
+  useEffect(() => {
+    const onResize = () => {
+      if (!animationRef.current) {
+        return;
+      }
+
+      animationRef.current.resize();
+    };
+
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
 
   return (
     <div
