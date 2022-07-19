@@ -26,10 +26,10 @@ const Glow: React.FC = () => (
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(40 40) rotate(90) scale(40 40)"
       >
-        <stop stopColor="white" />
+        <stop stopColor="#ffc800" />
         <stop
           offset="1"
-          stopColor="white"
+          stopColor="#ffc800"
           stopOpacity="0.4"
         />
       </radialGradient>

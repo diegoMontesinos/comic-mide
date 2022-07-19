@@ -13,7 +13,7 @@ const StepNavigator: React.FC = () => (
 
     <p className="mide-text tutorial-text">
       Utiliza el mosaico de esta esquina para navegar por
-      las distintas partes del cómic
+      las distintas partes del cómic.
     </p>
   </FadePage>
 );

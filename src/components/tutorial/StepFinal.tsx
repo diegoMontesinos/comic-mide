@@ -11,14 +11,14 @@ const StepFinal: React.FC = () => (
     duration={0.45}
   >
     <p className="mide-text tutorial-final-text">
-      ¡Esperemos que lo disfrutes!
+      ¡Esperamos que lo disfrutes!
     </p>
 
     <Link
       to="/comic"
       className="mide-text primary-btn go-to-comic"
     >
-      <span>Ir al Cómic</span>
+      <span>Ir al cómic</span>
     </Link>
   </FadePage>
 );

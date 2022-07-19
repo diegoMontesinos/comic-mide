@@ -13,7 +13,7 @@ const StepSound: React.FC = () => (
     <AppBar alwaysActive glowItem={AppBarItem.SOUND} />
 
     <p className="mide-text tutorial-text">
-      Activa o desactiva el sonido
+      Activa o desactiva el sonido.
     </p>
   </FadePage>
 );

@@ -13,7 +13,7 @@ const StepArrows: React.FC = () => (
 
     <p className="tutorial-text mide-text">
       Navega a través del cómic utilizando las flechas de
-      navegación
+      navegación.
     </p>
   </FadePage>
 );

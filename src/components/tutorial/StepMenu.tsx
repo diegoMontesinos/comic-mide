@@ -12,7 +12,7 @@ const StepMenu: React.FC = () => (
     <AppBar alwaysActive glowItem={AppBarItem.MENU} />
 
     <p className="mide-text tutorial-text">
-      Presiona este icono para mostrar el menú
+      Presiona este icono para mostrar el menú.
     </p>
   </FadePage>
 );
