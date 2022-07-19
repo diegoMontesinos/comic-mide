@@ -89,13 +89,17 @@ const ComicPage = React.forwardRef<
         container
       );
       animation.addEventListener(
-        'config_ready',
+        'loaded_images',
         onLoadAnimation
       );
       animation.addEventListener(
         'complete',
         onCompleteAnimation
       );
+      animation.addEventListener('data_failed', () => {
+        console.error('Animation not loaded');
+      });
+
       animationRef.current = animation;
 
       // Load sound
