@@ -444,11 +444,13 @@ const pages: PageData[] = [
     id: 'page-42',
     animation: 'ilu_42.json',
     thumbnail: Thumb42,
+    audio: Sound41,
   },
   {
     id: 'page-43',
     animation: 'ilu_43.json',
     thumbnail: Thumb43,
+    audio: Sound41,
   },
   {
     id: 'page-44',
@@ -486,6 +488,7 @@ const pages: PageData[] = [
     id: 'page-50',
     animation: 'ilu_50.json',
     thumbnail: Thumb50,
+    audio: Sound48,
   },
   {
     id: 'page-51',
@@ -609,12 +612,12 @@ const pages: PageData[] = [
     id: 'page-74',
     animation: 'ilu_74.json',
     thumbnail: Thumb74,
+    audio: Sound75,
   },
   {
     id: 'page-75',
     animation: 'ilu_75.json',
     thumbnail: Thumb75,
-    audio: Sound75,
   },
   {
     id: 'page-76',
@@ -683,6 +686,7 @@ const pages: PageData[] = [
     id: 'page-88',
     animation: 'ilu_88.json',
     thumbnail: Thumb88,
+    audio: Sound85,
   },
   {
     id: 'page-89',
@@ -862,6 +866,7 @@ const pages: PageData[] = [
     id: 'page-122',
     animation: 'ilu_122.json',
     thumbnail: Thumb122,
+    audio: Sound121,
   },
   {
     id: 'page-123',
