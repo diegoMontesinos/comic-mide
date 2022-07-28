@@ -14,10 +14,12 @@ import Sound20 from './assets/sounds/ilu_20.mp3';
 import Sound27 from './assets/sounds/ilu_27.mp3';
 import Sound28 from './assets/sounds/ilu_28.mp3';
 import Sound29 from './assets/sounds/ilu_29.mp3';
+import Sound31 from './assets/sounds/ilu_31.mp3';
 import Sound33 from './assets/sounds/ilu_33.mp3';
 import Sound41 from './assets/sounds/ilu_41.mp3';
 import Sound48 from './assets/sounds/ilu_48.mp3';
 import Sound49 from './assets/sounds/ilu_49.mp3';
+import Sound50 from './assets/sounds/ilu_50.mp3';
 import Sound59 from './assets/sounds/ilu_59.mp3';
 import Sound62 from './assets/sounds/ilu_62.mp3';
 import Sound73 from './assets/sounds/ilu_73.mp3';
@@ -387,6 +389,7 @@ const pages: PageData[] = [
     id: 'page-31',
     animation: 'ilu_31.json',
     thumbnail: Thumb31,
+    audio: Sound31,
   },
   {
     id: 'page-32',
@@ -488,7 +491,7 @@ const pages: PageData[] = [
     id: 'page-50',
     animation: 'ilu_50.json',
     thumbnail: Thumb50,
-    audio: Sound48,
+    audio: Sound50,
   },
   {
     id: 'page-51',

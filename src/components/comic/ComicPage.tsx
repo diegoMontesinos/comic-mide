@@ -5,7 +5,10 @@ import React, {
   useState,
 } from 'react';
 
-import lottie, { AnimationItem } from 'lottie-web';
+import lottie, {
+  AnimationEventName,
+  AnimationItem,
+} from 'lottie-web';
 import { Howl } from 'howler';
 
 import { PageData } from '../../interfaces/comic';
@@ -24,6 +27,13 @@ export interface ComicPageRef {
 }
 
 const ANIMATION_BASEPATH = 'animations/';
+
+const ANIMATION_LOAD_EVENTS: AnimationEventName[] = [
+  'config_ready',
+  'data_ready',
+  'DOMLoaded',
+  'loaded_images',
+];
 
 const ComicPage = React.forwardRef<
   ComicPageRef,
@@ -44,14 +54,34 @@ const ComicPage = React.forwardRef<
   const loadAnimation = (
     src: string,
     container: HTMLDivElement
-  ): AnimationItem =>
-    lottie.loadAnimation({
+  ): Promise<AnimationItem> => {
+    const animation = lottie.loadAnimation({
       container,
       renderer: 'svg',
       loop: false,
       autoplay: false,
       path: `${process.env.PUBLIC_URL}/${ANIMATION_BASEPATH}${src}`,
     });
+
+    return new Promise((resolve, reject) => {
+      const promises = ANIMATION_LOAD_EVENTS.map(
+        (eventName) =>
+          new Promise((resolveLoad) => {
+            animation.addEventListener(
+              eventName,
+              resolveLoad
+            );
+          })
+      );
+
+      Promise.all(promises).then(() => {
+        resolve(animation);
+      });
+
+      animation.addEventListener('data_failed', reject);
+      animation.addEventListener('error', reject);
+    });
+  };
 
   const loadSound = (src: string): Howl =>
     new Howl({
@@ -84,23 +114,20 @@ const ComicPage = React.forwardRef<
 
       if (!container) return;
 
-      // Load Animation
-      const animation = loadAnimation(
-        page.animation,
-        container
-      );
-      animation.addEventListener(
-        'loaded_images',
-        onLoadAnimation
-      );
-      animation.addEventListener(
-        'complete',
-        onCompleteAnimation
-      );
-      animation.addEventListener('data_failed', () => {
-        console.error('Animation not loaded');
-      });
-      animationRef.current = animation;
+      loadAnimation(page.animation, container)
+        .then((animation) => {
+          console.log('!!!!');
+          animation.addEventListener(
+            'complete',
+            onCompleteAnimation
+          );
+
+          animationRef.current = animation;
+          onLoadAnimation();
+        })
+        .catch(() => {
+          console.error('Animation not loaded');
+        });
 
       // Load sound
       if (page.audio) {
