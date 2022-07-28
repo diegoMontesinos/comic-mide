@@ -117,66 +117,61 @@ const AboutPage: React.FC = () => {
         <div className="about-content-col">
           <div className="about-content-item">
             <div className="about-content-title mide-text">
-              Lorem ipsum dolor sit amet 1
-            </div>
-            <div className="about-content-subtitle mide-text">
-              Consectetur adipiscing elit
+              Museo Interactivo de Economía
             </div>
           </div>
 
           <div className="about-content-item">
             <div className="about-content-title mide-text">
-              Curabitur ornare, nisi ac mollis tincidunt 2
+              Directora General
             </div>
             <div className="about-content-subtitle mide-text">
-              Tellus arcu pulvinar lacus, a placerat
+              Silvia Singer
             </div>
           </div>
 
           <div className="about-content-item">
             <div className="about-content-title mide-text">
-              Ante tortor nec risus 3
+              Director de Educación
             </div>
             <div className="about-content-subtitle mide-text">
-              Donec euismod Urna vel est dictum placerat vel
-            </div>
-          </div>
-        </div>
-
-        <div className="about-content-col">
-          <div className="about-content-item">
-            <div className="about-content-title mide-text">
-              Lorem ipsum dolor sit amet 4
-            </div>
-            <div className="about-content-subtitle mide-text">
-              Consectetur adipiscing elit
+              Carlos Cruz
             </div>
           </div>
 
           <div className="about-content-item">
             <div className="about-content-title mide-text">
-              Curabitur ornare, nisi ac mollis tincidunt 5
+              Directora de Desarrollo
             </div>
             <div className="about-content-subtitle mide-text">
-              Tellus arcu pulvinar lacus, a placerat
+              Marta Ladrón de Guevara
             </div>
           </div>
 
           <div className="about-content-item">
             <div className="about-content-title mide-text">
-              Ante tortor nec risus 6
+              Director de Comunicación
             </div>
             <div className="about-content-subtitle mide-text">
-              Donec euismod Urna vel est dictum placerat vel
+              Sergio Rivera
             </div>
           </div>
 
           <div className="about-content-item">
             <div className="about-content-title mide-text">
-              Lorem ipsum dolor sit amet 7
+              Gerente de Medios y Relaciones Públicas
             </div>
             <div className="about-content-subtitle mide-text">
-              Consectetur adipiscing elit
+              Rafael Chontal
+            </div>
+          </div>
+
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Coordinador de Comunicaciones de Marketing
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Alfredo Ponce
             </div>
           </div>
         </div>
@@ -184,28 +179,132 @@ const AboutPage: React.FC = () => {
         <div className="about-content-col">
           <div className="about-content-item">
             <div className="about-content-title mide-text">
-              Curabitur ornare, nisi ac mollis tincidunt 8
+              Coordinadora de Comunicación Educativa
             </div>
             <div className="about-content-subtitle mide-text">
-              Tellus arcu pulvinar lacus, a placerat
+              Ivonné González
             </div>
           </div>
 
           <div className="about-content-item">
             <div className="about-content-title mide-text">
-              Ante tortor nec risus 9
+              Coordinador de Educación Digital
             </div>
             <div className="about-content-subtitle mide-text">
-              Donec euismod Urna vel est dictum placerat vel
+              Miguel Ríos
             </div>
           </div>
 
           <div className="about-content-item">
             <div className="about-content-title mide-text">
-              Lorem ipsum dolor sit amet 10
+              Coordinadora de Servicios al Público
             </div>
             <div className="about-content-subtitle mide-text">
-              Consectetur adipiscing elit
+              Natalia García
+            </div>
+          </div>
+
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Talleres y actividades educativas
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Cristina Barrita
+            </div>
+          </div>
+
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Jefe de Diseño Publicitario
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Isaac Correa
+            </div>
+          </div>
+
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Coordinación de proyecto y contenidos
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Luciérnaga
+              <br />
+              Madelka Fiesco / Horacio Correa
+            </div>
+          </div>
+        </div>
+
+        <div className="about-content-col">
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Guion
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Gustavo de Anda
+              <br />
+              Luciérnaga
+              <br />
+              Madelka Fiesco / Horacio Correa
+            </div>
+          </div>
+
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Diseño e ilustración
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Daniel Sánchez
+            </div>
+          </div>
+
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Diseño de experiencia e interfaz
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Martín Pech
+            </div>
+          </div>
+
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Animación
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Martín Pech / Stephanie Lichi
+            </div>
+          </div>
+
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Desarrollo web
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Diego Montesinos
+            </div>
+          </div>
+
+          <div className="about-content-item">
+            <div className="about-content-title mide-text">
+              Agradecemos el valioso apoyo de las siguientes
+              personas
+            </div>
+            <div className="about-content-subtitle mide-text">
+              Camila Vázquez
+              <br />
+              Cinthia Abigail León
+              <br />
+              Cristina Barrita
+              <br />
+              Marisol Rodríguez
+              <br />
+              Mateo Vázquez
+              <br />
+              Monserrat Paredes
+              <br />
+              Natalia García
+              <br />
+              Rafael Chontal
             </div>
           </div>
         </div>

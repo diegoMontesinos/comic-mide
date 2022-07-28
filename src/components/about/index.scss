@@ -17,7 +17,7 @@
   .about-title,
   .about-content {
     width: 92%;
-    max-width: 1330px;
+    max-width: 1440px;
   }
 
   .about-title {
@@ -68,10 +68,10 @@
 
     .about-content-item {
       margin: 0;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
 
       @media (min-width: $lg-min) {
-        margin-bottom: 30px;
+        margin-bottom: 24px;
       }
 
       .about-content-title,

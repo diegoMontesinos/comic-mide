@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 
 import lottie, { AnimationItem } from 'lottie-web';
-
 import { Link } from 'react-router-dom';
+import { Howl } from 'howler';
 
 import MainTitleLogoImg from '../../assets/main-title-logo.svg';
 import FadePage from '../shared/FadePage';
+
+import Sound from '../../assets/sounds/ilu_00_portada.mp3';
 
 import './index.scss';
 
@@ -25,6 +27,17 @@ const HomePage: React.FC = () => {
       loop: true,
       autoplay: true,
       path: `${process.env.PUBLIC_URL}/${ANIMATION_PATH}`,
+    });
+
+    const sound = new Howl({
+      src: [Sound],
+      autoplay: false,
+      loop: false,
+    });
+
+    sound.on('load', () => {
+      sound.volume(0.5);
+      sound.play();
     });
 
     animationRef.current = animation;
