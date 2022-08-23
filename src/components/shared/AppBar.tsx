@@ -65,6 +65,7 @@ const AppBar: React.FC<AppBarProps> = ({
         onMouseOver={showAppBar}
         onFocus={showAppBar}
         onPan={(_, { offset }) => {
+          if (offset.y < 0) hideAppBar();
           if (offset.y > 0) showAppBar();
         }}
       />
@@ -85,6 +86,7 @@ const AppBar: React.FC<AppBarProps> = ({
             onMouseLeave={hideAppBar}
             onPan={(_, { offset }) => {
               if (offset.y < 0) hideAppBar();
+              if (offset.y > 0) showAppBar();
             }}
           >
             <div className="app-bar-sound-btn">

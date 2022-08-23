@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 
+import { motion } from 'framer-motion';
+
 import Glow from './Glow';
 
 import './ComicControls.scss';
@@ -69,7 +71,18 @@ const ComicControls: React.FC<ComicControlProps> = ({
   });
 
   return (
-    <div className="comic-controls">
+    <motion.div
+      className="comic-controls"
+      onPan={(_, { offset }) => {
+        if (showBack && offset.x > 10 && handleBack) {
+          handleBack();
+        }
+
+        if (showForward && offset.x < 10 && handleForward) {
+          handleForward();
+        }
+      }}
+    >
       {showBack && (
         <button
           className="go-back-btn enabled"
@@ -91,7 +104,7 @@ const ComicControls: React.FC<ComicControlProps> = ({
           <Arrow />
         </button>
       )}
-    </div>
+    </motion.div>
   );
 };
 
