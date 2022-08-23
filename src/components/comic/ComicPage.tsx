@@ -116,7 +116,6 @@ const ComicPage = React.forwardRef<
 
       loadAnimation(page.animation, container)
         .then((animation) => {
-          console.log('!!!!');
           animation.addEventListener(
             'complete',
             onCompleteAnimation

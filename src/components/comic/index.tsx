@@ -121,16 +121,6 @@ const Comic: React.FC = () => {
       <ComicControls
         showBack={currentPageIndex > 0}
         showForward={currentPageIndex < pages.length - 1}
-        classBack={
-          playingState !== PlayingState.READING
-            ? 'disabled'
-            : 'enabled'
-        }
-        classForward={
-          playingState !== PlayingState.READING
-            ? 'disabled'
-            : 'enabled'
-        }
         handleBack={handleBack}
         handleForward={handleForward}
       />

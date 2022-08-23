@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Glow from './Glow';
 
@@ -7,8 +7,6 @@ import './ComicControls.scss';
 export interface ComicControlProps {
   showBack?: boolean;
   showForward?: boolean;
-  classBack?: string;
-  classForward?: string;
   withGlow?: boolean;
   handleForward?: () => void;
   handleBack?: () => void;
@@ -33,38 +31,68 @@ const Arrow: React.FC = () => (
   </svg>
 );
 
+const LEFT_KEY = 37;
+const RIGHT_KEY = 39;
+
 const ComicControls: React.FC<ComicControlProps> = ({
   withGlow = false,
   showBack = true,
   showForward = true,
-  classBack = '',
-  classForward = '',
   handleBack,
   handleForward,
-}) => (
-  <div className="comic-controls">
-    {showBack && (
-      <button
-        className={`go-back-btn ${classBack}`}
-        type="button"
-        onClick={handleBack}
-      >
-        {withGlow && <Glow />}
-        <Arrow />
-      </button>
-    )}
+}) => {
+  useEffect(() => {
+    const onKeydown = (evt: KeyboardEvent) => {
+      const key = evt.key || evt.keyCode;
 
-    {showForward && (
-      <button
-        className={`go-fwd-btn ${classForward}`}
-        type="button"
-        onClick={handleForward}
-      >
-        {withGlow && <Glow />}
-        <Arrow />
-      </button>
-    )}
-  </div>
-);
+      if (
+        showBack &&
+        (key === LEFT_KEY || key === 'ArrowLeft') &&
+        handleBack
+      ) {
+        handleBack();
+      }
+
+      if (
+        showForward &&
+        (key === RIGHT_KEY || key === 'ArrowRight') &&
+        handleForward
+      ) {
+        handleForward();
+      }
+    };
+
+    window.addEventListener('keydown', onKeydown);
+    return () => {
+      window.removeEventListener('keydown', onKeydown);
+    };
+  });
+
+  return (
+    <div className="comic-controls">
+      {showBack && (
+        <button
+          className="go-back-btn enabled"
+          type="button"
+          onClick={handleBack}
+        >
+          {withGlow && <Glow />}
+          <Arrow />
+        </button>
+      )}
+
+      {showForward && (
+        <button
+          className="go-fwd-btn enabled"
+          type="button"
+          onClick={handleForward}
+        >
+          {withGlow && <Glow />}
+          <Arrow />
+        </button>
+      )}
+    </div>
+  );
+};
 
 export default ComicControls;

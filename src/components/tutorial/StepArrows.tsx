@@ -12,8 +12,8 @@ const StepArrows: React.FC = () => (
     <ComicControls withGlow />
 
     <p className="tutorial-text mide-text">
-      Navega a través del cómic utilizando las flechas de
-      navegación.
+      Utiliza las flechas de navegación para avanzar o
+      regresar en el cómic.
     </p>
   </FadePage>
 );
