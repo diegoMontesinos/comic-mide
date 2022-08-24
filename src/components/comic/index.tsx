@@ -118,6 +118,11 @@ const Comic: React.FC = () => {
         }
       />
 
+      <div className="comic-page-number">
+        <span>{currentPageIndex + 1}</span>
+        <span>/{pages.length}</span>
+      </div>
+
       <ComicControls
         showBack={currentPageIndex > 0}
         showForward={currentPageIndex < pages.length - 1}

@@ -9,3 +9,33 @@
 .comic-page-hidden {
   opacity: 0;
 }
+
+.comic-page-number {
+  width: 157px;
+  height: 52px;
+
+  position: absolute;
+  bottom: 3%;
+  right: 4.375%;
+
+  background: rgba(115, 115, 115, 0.5);
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-family: 'ComicMarkerDeluxe', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.75rem;
+    text-align: center;
+
+    color: #ffffff;
+  }
+
+  span:nth-child(2) {
+    color: #a8a8a8;
+  }
+}
